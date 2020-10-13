@@ -18,6 +18,7 @@ import { ReporteCiudadanoAdmiComponent } from './components/reporte-ciudadano-ad
 import { QuejaListaComponent } from './components/queja-lista/queja-lista.component';
 import { PropuestaListaComponent } from './components/propuesta-lista/propuesta-lista.component';
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-l
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
