@@ -1,0 +1,63 @@
+/* Menu de navegacion lateral */
+.sidenav {
+    height: 100%;
+    width: 100px; /* Este valor cambia dinamicamente desde ts */
+    position: fixed; /* Lo mantiene en su lugar */
+    z-index: 1; /* Lo mantienen arriba de las otras capas */
+    top: 0; /* Lo mantienen en la parte superior */
+    left: 0;
+    background-color: #34051C;
+    overflow-x: hidden; /* Elimina el scroll horizontal */
+    transition: 0.5s; /* Tiempo de la transicion del navbar */
+}
+
+/* Etiquetas a correspondientes al logosidenav */
+#logoSidenav {
+    padding: 48px 48px 48px 48px;
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 33px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Etiquetas a correspondientes al Fake logosidenav */
+#fakelogoSidenav {
+  padding: 48px 1px 48px 1px;
+  text-decoration: none;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 33px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Etiquetas a correspondientes al sidenav */
+.sidenav a {
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 18px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Cambio de color al colocarse sobre el logo */
+#logoSidenav:hover {
+  background-color: #34051C;
+}
+
+/* Cambio de color al colocarse sobre las etiquetas de a */
+.sidenav a:hover {
+    background-color: #56082E;
+}
+
+/* Pagina principal */
+#main {
+  margin-left: 100px;
+  transition: margin-left .5s; /* Transicion de desplazamiento para margen lateral izquierdo */
+  padding: 20px;
+}
