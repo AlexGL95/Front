@@ -1,58 +1,63 @@
 /* Menu de navegacion lateral */
 .sidenav {
     height: 100%;
-    width: 0; /* Este valor cambia dinamicamente desde ts */
+    width: 100px; /* Este valor cambia dinamicamente desde ts */
     position: fixed; /* Lo mantiene en su lugar */
     z-index: 1; /* Lo mantienen arriba de las otras capas */
     top: 0; /* Lo mantienen en la parte superior */
     left: 0;
-    background-color: #111;
+    background-color: #34051C;
     overflow-x: hidden; /* Elimina el scroll horizontal */
     transition: 0.5s; /* Tiempo de la transicion del navbar */
 }
 
-/* Etiquetas a correspondientes al sidenav */
+/* Etiquetas a correspondientes al logosidenav */
 #logoSidenav {
-    padding: 32px 32px 32px 32px;
+    padding: 48px 48px 48px 48px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 33px;
+    color: #f1f1f1;
     display: block;
     transition: 0.3s;
+}
+
+/* Etiquetas a correspondientes al Fake logosidenav */
+#fakelogoSidenav {
+  padding: 48px 1px 48px 1px;
+  text-decoration: none;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 33px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
 }
 
 /* Etiquetas a correspondientes al sidenav */
 .sidenav a {
-    padding: 16px 16px 16px 16px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-family: Arial;
+    font-size: 18px;
+    color: #f1f1f1;
     display: block;
     transition: 0.3s;
 }
-  
-/* Cambio de color al colocarse sobre las etiquetas de a */
-.sidenav a:hover {
-    color: #f1f1f1;
+
+/* Cambio de color al colocarse sobre el logo */
+#logoSidenav:hover {
+  background-color: #34051C;
 }
 
-/* Boton circular basico */
-.botonCircular{
-    width:50px;
-    height:50px;
-    background-color:#000000;
-    margin: 5px;
-    border-radius: 50px;
+/* Cambio de color al colocarse sobre las etiquetas de a */
+.sidenav a:hover {
+    background-color: #56082E;
 }
 
 /* Pagina principal */
-  #main {
-    transition: margin-left .5s; /* Transicion de desplazamiento para margen lateral izquierdo */
-    padding: 20px;
-  }
-  
-  /* Para pantallas menores a 450px el sidenav cambia sus padding */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+#main {
+  margin-left: 100px;
+  transition: margin-left .5s; /* Transicion de desplazamiento para margen lateral izquierdo */
+  padding: 20px;
+}
