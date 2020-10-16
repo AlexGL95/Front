@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, faChartLine, faSignOutAlt, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { QuejaService } from 'src/app/services/queja.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { QuejaInterface } from "src/app/interfaces/queja.interface";
 
 @Component({
   selector: 'app-queja-lista',
@@ -20,11 +23,28 @@ export class QuejaListaComponent implements OnInit {
 
   // Variables
   bSidenavAct = false;
+  bSinCoincidencias = false;
+  quejasArr: QuejaInterface[] = [];
+  nPagSig: number;
+  categoriaActual = 0;
+  areaActual = 0;
+  paginaActual = 1;
+  quejaActual: string;
+  pdfActual;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor( private quejaService: QuejaService, private modalService: NgbModal ) {
+      quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+        if(quejas.rcArr.length === 0) {
+          this.bSinCoincidencias = true;
+        } else {
+          this.bSinCoincidencias = false;
+        }
+      });
   }
+
+  ngOnInit(): void {}
 
   /* Navbar */
     // Ajusta el ancho del navbar para mostrarse, ademas que desplaza la pagina principal.
@@ -42,6 +62,67 @@ export class QuejaListaComponent implements OnInit {
     }
 
   /* Cuerpo de la pagina */
-  
+    // Pagina siguiente
+    paginaSig() {
+      this.paginaActual += 1;
+      this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+      });
+    }
+
+    // Pagina siguiente
+    paginaAnt() {
+      this.paginaActual -= 1;
+      this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+      });
+    }
+
+    // Pagina proxima
+    paginaNext( offset: number ) {
+      this.paginaActual += offset;
+      this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+      });
+    }
+
+    // Pagina antigua
+    paginaBack( offset: number ) {
+      this.paginaActual -= offset;
+      this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+      });
+    }
+
+    // Pagina antigua
+    filtro( categoria: number, area: number ) {
+      this.categoriaActual = categoria;
+      this.areaActual = area;
+      this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+        this.quejasArr = quejas.rcArr;
+        this.nPagSig = quejas.nSig;
+        if(quejas.rcArr.length === 0) {
+          this.bSinCoincidencias = true;
+        } else {
+          this.bSinCoincidencias = false;
+        }
+      });
+    }
+
+    // Ver
+    ver( pos: number, contenido ) {
+      this.quejaService.verQueja( this.quejasArr[pos].id ).subscribe( url => {
+        this.pdfActual = url;
+        this.abrirModal( contenido );
+      });
+    }
+
+    abrirModal( contenido ) {
+      this.modalService.open( contenido, { centered: true, size: 'lg' } ).result;
+    }
 
 }
