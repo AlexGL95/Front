@@ -1,3 +1,5 @@
+/*Texto y color de nabvar*/
+
 .BG {
     background-color: #34051C;
 }
@@ -7,4 +9,61 @@
     font: Arial;
     font-weight: bold;
     margin-left: 4%;
+}
+
+
+/*Fin de texto y color de navbar*/
+
+.regreso {
+    color: black;
+    font: Arial;
+    font-size: 17px;
+}
+
+.titulo {
+    font: Arial;
+}
+
+.imag {
+    visibility: hidden;
+    width: 0%;
+}
+
+[class*="col-"] {
+    width: 100%;
+}
+
+.cardspace {
+    width: auto;
+}
+
+.lin {
+    text-decoration: none;
+    color: black;
+}
+
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+.mt2 {
+    margin-top: 10%;
+}
+
+.hgh {
+    height: auto;
+}
+
+@media only screen and (min-width: 880px) {
+    /* For desktop: */
+    .cardspace {
+        max-width: 50%;
+    }
+    .imag {
+        visibility: visible;
+        width: 50%;
+        margin-left: 10%;
+    }
 }
