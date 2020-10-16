@@ -26,18 +26,22 @@ export class QuejaListaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Ajusta el ancho del navbar para mostrarse, ademas que desplaza la pagina principal.
-  openNav() {
-    document.getElementById("mySidenav").style.width = "280px";
-    document.getElementById("main").style.marginLeft = "280px";
-    this.bSidenavAct = true;
-  }
+  /* Navbar */
+    // Ajusta el ancho del navbar para mostrarse, ademas que desplaza la pagina principal.
+    openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+      document.getElementById("main").style.marginLeft = "280px";
+      this.bSidenavAct = true;
+    }
 
-  // Ajusta el ancho del navbar para ocultarse, ademas que desplaza la pagina principal.
-  closeNav() {
-    document.getElementById("mySidenav").style.width = "100px";
-    document.getElementById("main").style.marginLeft = "100px";
-    this.bSidenavAct = false;
-  }
+    // Ajusta el ancho del navbar para ocultarse, ademas que desplaza la pagina principal.
+    closeNav() {
+      document.getElementById("mySidenav").style.width = "100px";
+      document.getElementById("main").style.marginLeft = "100px";
+      this.bSidenavAct = false;
+    }
+
+  /* Cuerpo de la pagina */
+  
 
 }
