@@ -11,6 +11,10 @@
     margin-left: 4%;
 }
 
+.imgcard {
+    height: 40%;
+}
+
 
 /*Fin de texto y color de navbar*/
 
@@ -22,6 +26,7 @@
 
 .titulo {
     font: Arial;
+    font-weight: bold;
 }
 
 .imag {
