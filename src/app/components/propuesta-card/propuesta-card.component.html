@@ -1,1 +1,69 @@
-<p>propuesta-card works!</p>
+<body>
+
+    <!--Nav bar superior simple-->
+    <nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+        <div class="container-fluid">
+            <a class="navbar-brand TxtC">LOGO</a>
+        </div>
+    </nav>
+    <!--Fin de navbar superior simple-->
+
+    <div class="row">
+        <div class="col">
+            <div class="container m-5">
+                <div class="text-left ml-3">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a class="regreso" href="/Inicio"> Regresar</a>
+                </div>
+                <h2 class="text-center titulo">PROPUESTAS</h2>
+                <div class="row mt-5">
+                    <!--Contenedor de cards-->
+                    <div class="container mx-auto row">
+                        <!--Card de Servicios-->
+                        <div class="card mx-auto shadow" style="width: 13rem; height: 23rem ;">
+                            <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
+                            <div class="text-center mt2">
+                                <h5 class="card-title">Servicios</h5>
+                            </div>
+                            <ul class="container">
+                                <div class="container-fluid border-top border-black">
+                                    <div data-spy="scroll" class="scrollspy-example text-center ">
+
+                                        <a class="lin" href="Propuesta/1/Alumbrado_Público"> Alumbrado Público</a><br>
+                                        <a class="lin" href="Propuesta/2/Dependencias_Públicas"> Dependencias Públicas</a><br>
+                                        <a class="lin" href="Propuesta/3/Drenaje"> Drenaje</a><br>
+                                        <a class="lin" href="Propuesta/4/Postes"> Postes</a><br>
+                                        <a class="lin" href="Propuesta/5/Sanidad"> Sanidad</a><br>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                        <!--Fin de card Servicios-->
+                        <!--Card vialidad-->
+                        <div class="card mx-auto shadow" style="width: 13rem; height: 23rem ;">
+                            <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
+                            <div class="text-center mt2">
+                                <h5 class="card-title">Vialidad</h5>
+                            </div>
+
+                            <div class="container-fluid border-top border-black ">
+                                <div data-spy="scroll" class="scrollspy-example text-center">
+                                    <br>
+                                    <a class="lin" href="Propuesta/6/Semáforo"> Semáforo</a><br>
+                                    <a class="lin" href="Propuesta/7/Tráfico"> Tráfico</a><br>
+                                    <a class="lin" href="Propuesta/8/Vía_Dañada"> Vía Dañada</a><br>
+                                    <a class="lin" href="Propuesta/9/Vía_Obstruida"> Vía Obstruida</a><br>
+                                    <a class="lin" href="Propuesta/10/Vía_Peatonal"> Vía Peatonal</a><br>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin de card vialidad-->
+                    </div>
+                    <!--Fin de contenedor de cards-->
+                </div>
+            </div>
+        </div>
+        <div class="border border-black imag container-fluid hgh">
+            imagen
+        </div>
+    </div>
+</body>
