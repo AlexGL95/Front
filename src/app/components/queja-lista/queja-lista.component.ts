@@ -3,6 +3,7 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { QuejaService } from 'src/app/services/queja.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { QuejaInterface } from "src/app/interfaces/queja.interface";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-queja-lista',
@@ -32,16 +33,23 @@ export class QuejaListaComponent implements OnInit {
   quejaActual: string;
   pdfActual;
 
-  constructor( private quejaService: QuejaService, private modalService: NgbModal ) {
-      quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
-        this.quejasArr = quejas.rcArr;
-        this.nPagSig = quejas.nSig;
-        if(quejas.rcArr.length === 0) {
-          this.bSinCoincidencias = true;
-        } else {
-          this.bSinCoincidencias = false;
-        }
-      });
+  constructor(
+    private quejaService: QuejaService,
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.params.subscribe( params => {
+      this.categoriaActual = params['categoria'];
+    } );
+    quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
+      this.quejasArr = quejas.rcArr;
+      this.nPagSig = quejas.nSig;
+      if(quejas.rcArr.length === 0) {
+        this.bSinCoincidencias = true;
+      } else {
+        this.bSinCoincidencias = false;
+      }
+    });
   }
 
   ngOnInit(): void {}

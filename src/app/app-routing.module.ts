@@ -23,15 +23,15 @@ const routes: Routes = [
   { path: 'Propuesta/:id/:area', component: PropuestaComponent, data: { title: 'Propuesta' }  },
   { path: 'PropuestaAdmi', component: PropuestaAdmiComponent, data: { title: 'Propuesta Administrador' }  },
   { path: 'PropuestaCard', component: PropuestaCardComponent, data: { title: 'Propuesta Selector' }  },
-  { path: 'PropuestaLista', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }  },
+  { path: 'PropuestaLista/:categoria', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }  },
   { path: 'Queja/:id/:area', component: QuejaComponent, data: { title: 'Queja' }  },
   { path: 'QuejaAdmi', component: QuejaAdmiComponent, data: { title: 'Queja Administrador' }  },
   { path: 'QuejaCard', component: QuejaCardComponent, data: { title: 'Queja Selector' }  },
-  { path: 'QuejaLista', component: QuejaListaComponent, data: { title: 'Queja Lista' }  },
+  { path: 'QuejaLista/:categoria', component: QuejaListaComponent, data: { title: 'Queja Lista' }  },
   { path: 'ReporteCi/:id/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
   { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }  },
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
-  { path: 'ReporteCiLista', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
+  { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
