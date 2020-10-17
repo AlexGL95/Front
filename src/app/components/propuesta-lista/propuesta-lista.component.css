@@ -133,11 +133,11 @@
 /* Cuerpo de la pagina */
 
 .desaparece {
-    visibility: visible;
+    display: block;
 }
 
 @media only screen and (max-width: 960px) {
     .desaparece {
-        visibility: hidden;
+        display: none;
     }
 }
