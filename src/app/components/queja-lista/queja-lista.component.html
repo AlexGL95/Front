@@ -131,15 +131,15 @@
             <button type="button" class="btn btn-light mr-4" (click)="paginaAnt()" *ngIf="paginaActual > 1">
                 <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
             </button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(4)" *ngIf="(paginaActual > 4) && (nPagSig > 1)">{{paginaActual - 4}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(3)" *ngIf="(paginaActual > 3) && (nPagSig > 0)">{{paginaActual - 3}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaBack(2)" *ngIf="paginaActual > 2">{{paginaActual - 2}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaBack(1)" *ngIf="paginaActual > 1">{{paginaActual - 1}}</button>
-            <button type="button" class="btn btn-light mr-1">{{paginaActual}}</button>
+            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(4)" *ngIf="(paginaActual > 4) && (nPagSig > 5)">{{paginaActual - 4}}</button>
+            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(3)" *ngIf="(paginaActual > 3) && (nPagSig > 4)">{{paginaActual - 3}}</button>
+            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(2)" *ngIf="paginaActual > 2">{{paginaActual - 2}}</button>
+            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(1)" *ngIf="paginaActual > 1">{{paginaActual - 1}}</button>
+            <button type="button" class="btn btn-light mr-1 active">{{paginaActual}}</button>
             <button type="button" class="btn btn-light mr-1" (click)="paginaNext(1)" *ngIf="nPagSig > 0">{{paginaActual + 1}}</button>
             <button type="button" class="btn btn-light mr-1" (click)="paginaNext(2)" *ngIf="nPagSig > 1">{{paginaActual + 2}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaNext(3)" *ngIf="(nPagSig > 2) && (paginaActual > 2)">{{paginaActual + 3}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaNext(4)" *ngIf="(nPagSig > 3) && (paginaActual > 3)">{{paginaActual + 4}}</button>
+            <button type="button" class="btn btn-light" (click)="paginaNext(3)" *ngIf="(nPagSig > 2) && (paginaActual < 3)">{{paginaActual + 3}}</button>
+            <button type="button" class="btn btn-light" (click)="paginaNext(4)" *ngIf="(nPagSig > 3) && (paginaActual < 2)">{{paginaActual + 4}}</button>
             <button type="button" class="btn btn-light ml-4" (click)="paginaSig()" *ngIf="nPagSig > 0">
                 <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
             </button>
