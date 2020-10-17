@@ -1,0 +1,121 @@
+/* Menu de navegacion lateral */
+.sidenav {
+    height: 100%;
+    width: 100px; /* Este valor cambia dinamicamente desde ts */
+    position: fixed; /* Lo mantiene en su lugar */
+    z-index: 1; /* Lo mantienen arriba de las otras capas */
+    top: 0; /* Lo mantienen en la parte superior */
+    left: 0;
+    background-color: #34051C;
+    overflow-x: hidden; /* Elimina el scroll horizontal */
+    transition: 0.5s; /* Tiempo de la transicion del navbar */
+}
+
+/* Etiquetas a correspondientes al logosidenav */
+#logoSidenav {
+    padding: 48px 48px 48px 48px;
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 33px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Etiquetas a correspondientes al Fake logosidenav */
+#fakelogoSidenav {
+  padding: 48px 1px 48px 1px;
+  text-decoration: none;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 33px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Etiquetas a correspondientes al sidenav */
+.sidenav a {
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 18px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Cambio de color al colocarse sobre el logo */
+#logoSidenav:hover {
+  background-color: #34051C;
+}
+
+/* Cambio de color al colocarse sobre las etiquetas de a */
+.sidenav a:hover {
+    background-color: #56082E;
+}
+
+/* Pagina principal */
+#main {
+  margin-left: 100px;
+  transition: margin-left .5s; /* Transicion de desplazamiento para margen lateral izquierdo */
+  padding: 20px;
+}
+
+.cuadroEncabezado {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #909497;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 8px 1px 8px 1px;
+}
+
+.cuadro {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #909497;
+    font-family: Arial;
+    font-size: smaller;
+    padding: 8px 8px 8px 8px;
+}
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#selector {
+    background-color: white;
+    color: #CCD1D1;
+}
+
+#selectorBtn {
+    background-color: white;
+    color: black;
+}
+
+#selectorBtn:hover {
+    background-color: #0B5345;
+    color: white;
+}
+
+.dropdown-item {
+    font-family: Arial;
+}
+
+.btn:hover {
+    background-color: #0B5345;
+    color: white;
+}
+
+/* Cuerpo de la pagina */
+.desaparece {
+    visibility: visible;
+}
+
+@media only screen and (max-width: 960px) {
+    .desaparece {
+        visibility: hidden;
+    }
+}
