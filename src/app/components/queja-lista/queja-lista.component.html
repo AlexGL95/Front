@@ -1,26 +1,38 @@
-<head><meta name="viewport" content="width=960, initial-scale=0.5, user-scalable=yes"></head>
+<head>
+    <meta name="viewport" content="width=960, initial-scale=0.6, maximum-scale=1, minimum-scale=0.5 user-scalable=yes">
+</head>
 
 <div id="mySidenav" class="sidenav">
     <a id="logoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="bSidenavAct">LOGO</a>
     <a id="fakelogoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="!bSidenavAct"><br></a>
     <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/QuejaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;"><fa-icon [icon]="faEnvelopeOpenText"></fa-icon></div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="35" height="35">
+        </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Quejas</div>
     </a>
     <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/PropuestaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;"><fa-icon [icon]="faLightbulb"></fa-icon></div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="35" height="35">
+        </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Propuestas</div>
     </a>
     <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/ReporteCiAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;"><fa-icon [icon]="faExclamationTriangle"></fa-icon></div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="35" height="35">
+        </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes<br>Ciudadanos</div>
     </a>
     <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;"><fa-icon [icon]="faChartLine"></fa-icon></div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="35" height="35">
+        </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes</div>
     </a>
     <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;"><fa-icon [icon]="faSignOutAlt"></fa-icon></div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="35" height="35">
+        </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Cerrar Sesion</div>
     </a>
 </div>
@@ -70,7 +82,7 @@
                         <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,2)">Vía Obstruida</button>
                         <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,3)">Semáforo</button>
                         <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,4)">Tráfico</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button"(click)="filtro(2,5)">Vía Peatonal</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,5)">Vía Peatonal</button>
                     </div>
                 </div>
             </div>
@@ -83,7 +95,7 @@
         <div class="row mb- 3 mr-2" style="width: 100%;" *ngIf="!bSinCoincidencias">
             <!-- Tabla de quejas -->
             <table class="mt-3" style="width:100%">
-                <tr class="border" style="background-color: #56082E; color: white;">
+                <tr class="border" style="background-color: #5e1932; color: white;">
                     <!-- Columna de folio -->
                     <th class="cuadroEncabezado text-center">FOLIO</th>
                     <!-- Columna de nombre -->
@@ -123,7 +135,7 @@
                         </button>
                     </th>
                 </tr>
-              </table>
+            </table>
 
         </div>
         <!-- Paginacion -->
@@ -150,13 +162,13 @@
 
 <!-- Modal -->
 <ng-template #contenido let-modal>
-    <div class="modal-header text-center" style="background-color: #56082E; color:white;">
-      <h3 class="modal-title w-100" style="padding: 10px 8px 10px 8px; font-family: Arial; font-weight: bold;">INFORMACIÓN DE QUEJA</h3>
-      <button type="button" class="close" style="color: white;" (click)="modal.dismiss()">
+    <div class="modal-header text-center" style="background-color: #5e1932; color:white;">
+        <h3 class="modal-title w-100" style="padding: 10px 8px 10px 8px; font-family: Arial; font-weight: bold;">INFORMACIÓN DE QUEJA</h3>
+        <button type="button" class="close" style="color: white;" (click)="modal.dismiss()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
         <app-pdf-view [pdfSrc]="pdfActual"></app-pdf-view>
     </div>
-  </ng-template>
+</ng-template>
