@@ -20,6 +20,8 @@ import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-l
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +40,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReporteCiudadanoAdmiComponent,
     QuejaListaComponent,
     PropuestaListaComponent,
-    ReporteCiudadanoListaComponent
+    ReporteCiudadanoListaComponent,
+    PdfViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { QuejaInterface } from '../interfaces/queja.interface';
 
 @Injectable({
@@ -16,7 +16,14 @@ export class QuejaService {
   }
 
   verQueja( id: number ) {
-    return this.http.get<string>(this.URL_QUEJAS + `/${id}`);
+      const httpHeaders = new HttpHeaders({
+        'Content-Type': 'application/json'
+      });
+      const options = {
+        headers: httpHeaders,
+        responseType: 'blob' as 'json'
+      };
+      return this.http.get<any>(this.URL_QUEJAS + `/${id}`, options);
   }
 
 }

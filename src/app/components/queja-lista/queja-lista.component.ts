@@ -3,6 +3,7 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { QuejaService } from 'src/app/services/queja.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { QuejaInterface } from "src/app/interfaces/queja.interface";
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-queja-lista',
@@ -115,10 +116,16 @@ export class QuejaListaComponent implements OnInit {
 
     // Ver
     ver( pos: number, contenido ) {
-      this.quejaService.verQueja( this.quejasArr[pos].id ).subscribe( url => {
-        this.pdfActual = url;
-        this.abrirModal( contenido );
-      });
+        this.quejaService
+        this.quejaService.verQueja( this.quejasArr[pos].id )
+          .subscribe(
+            data => {
+              const file = new Blob([data], { type: 'application/pdf' });
+              this.pdfActual = URL.createObjectURL(file);
+              this.abrirModal(contenido)
+              //window.open(fileURL);
+            }
+          );
     }
 
     abrirModal( contenido ) {
