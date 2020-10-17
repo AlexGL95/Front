@@ -1,67 +1,69 @@
-<!--Nav bar superior simple-->
-<nav style="width: 150%;" class="navbar navbar-expand-lg navbar-light BG">
-    <div class="container-fluid">
-        <a class="navbar-brand TxtC">LOGO</a>
-    </div>
-</nav>
-<!--Fin de navbar superior simple-->
+<body>
 
-<div class="row">
-    <div class="col">
-        <div class="container m-5">
-            <div class="text-left ml-3">
-                <fa-icon [icon]="faChevronLeft"></fa-icon> <a class="regreso" href="/Inicio"> Regresar</a>
-            </div>
+    <!--Nav bar superior simple-->
+    <nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+        <div class="container-fluid">
+            <a class="navbar-brand TxtC">LOGO</a>
+        </div>
+    </nav>
+    <!--Fin de navbar superior simple-->
 
-            <h2 class="text-center titulo">QUEJAS</h2>
+    <div class="row">
+        <div class="col">
+            <div class="container m-5">
+                <div class="text-left ml-3">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a class="regreso" href="/Inicio"> Regresar</a>
+                </div>
+                <h2 class="text-center titulo">QUEJAS</h2>
+                <div class="row mt-5">
+                    <!--Contenedor de cards-->
+                    <div class="container mx-auto row">
+                        <!--Card de Servicios-->
+                        <div class="card mx-auto shadow" style="width: 13rem; height: 23rem ;">
+                            <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
+                            <div class="text-center mt2">
+                                <h5 class="card-title">Servicios</h5>
+                            </div>
+                            <ul class="container">
+                                <div class="container-fluid border-top border-black">
+                                    <div data-spy="scroll" class="scrollspy-example text-center ">
 
-            <div class="row mt-5">
-                <!--Contenedor de cards-->
-                <div class="container mx-auto row">
-                    <!--Card de Servicios-->
-                    <div class="card mx-auto" style="width: 12rem; height: 23rem ;">
-                        <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
-                        <div class="text-center mt2">
-                            <h5 class="card-title">Servicios</h5>
+                                        <a class="lin" href="Queja/1/Alumbrado_Público"> Alumbrado Público</a><br>
+                                        <a class="lin" href="Queja/2/Depencencias_Públicas"> Dependencias Públicas</a><br>
+                                        <a class="lin" href="Queja/3/Drenaje"> Drenaje</a><br>
+                                        <a class="lin" href="Queja/4/Postes"> Postes</a><br>
+                                        <a class="lin" href="Queja/5/Sanidad"> Sanidad</a><br>
+                                    </div>
+                                </div>
+                            </ul>
                         </div>
-                        <ul class="container">
-                            <div class="container-fluid border-top border-black">
-                                <div data-spy="scroll" class="scrollspy-example text-center ">
-                                    <a class="lin" href=""> Alumbrado Público</a><br>
-                                    <a class="lin" href=""> Dependencias Públicas</a><br>
-                                    <a class="lin" href=""> Drenaje</a><br>
-                                    <a class="lin" href=""> Postes</a><br>
-                                    <a class="lin" href=""> Sanidad</a><br>
+                        <!--Fin de card Servicios-->
+                        <!--Card vialidad-->
+                        <div class="card mx-auto shadow" style="width: 13rem; height: 23rem ;">
+                            <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
+                            <div class="text-center mt2">
+                                <h5 class="card-title">Vialidad</h5>
+                            </div>
+
+                            <div class="container-fluid border-top border-black ">
+                                <div data-spy="scroll" class="scrollspy-example text-center">
+                                    <br>
+                                    <a class="lin" href="Queja/6/Semáforo"> Semáforo</a><br>
+                                    <a class="lin" href="Queja/7/Tráfico"> Tráfico</a><br>
+                                    <a class="lin" href="Queja/8/Vía_Dañada"> Vía Dañada</a><br>
+                                    <a class="lin" href="Queja/9/Vía_Obstruida"> Vía Obstruida</a><br>
+                                    <a class="lin" href="Queja/10/Vía_Peatonal"> Vía Peatonal</a><br>
                                 </div>
                             </div>
-                        </ul>
-                    </div>
-                    <!--Fin de card Servicios-->
-                    <!--Card vialidad-->
-                    <div class="card mx-auto" style="width: 12rem; height: 23rem ;">
-                        <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
-                        <div class="text-center mt2">
-                            <h5 class="card-title">Vialidad</h5>
                         </div>
-
-                        <div class="container-fluid border-top border-black ">
-                            <div data-spy="scroll" class="scrollspy-example text-center">
-                                <a class="lin" href=""> Semáforo</a><br>
-                                <a class="lin" href=""> Tráfico</a><br>
-                                <a class="lin" href=""> Vía Dañada</a><br>
-                                <a class="lin" href=""> Vía Obstruida</a><br>
-                                <a class="lin" href=""> Vía Peatonal</a><br>
-                            </div>
-                        </div>
+                        <!--Fin de card vialidad-->
                     </div>
-                    <!--Fin de card vialidad-->
-
+                    <!--Fin de contenedor de cards-->
                 </div>
-                <!--Fin de contenedor de cards-->
             </div>
         </div>
+        <div class="border border-black imag container-fluid hgh">
+            imagen
+        </div>
     </div>
-    <div class="border border-black imag ml1 container-fluid hgh">
-        imagen
-    </div>
-</div>
+</body>
