@@ -68,21 +68,20 @@
                     Sub-categoria
                     </button>
                     <div class="dropdown-menu" style="width: 100%;">
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" (click)="filtro(0,0)">Sin filtro</button>
-                        <div class="dropdown-divider"></div>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(1,0)">Servicios</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,1)">Drenaje</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,2)">Alumbrado Público</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,3)">Sanidad</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,4)">Dependencias Públicas</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,5)">Postes</button>
-                        <div class="dropdown-divider"></div>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(2,0)">Vialidad</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,6)">Vía Dañada</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,7)">Vía Obstruida</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,8)">Semáforo</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,9)">Tráfico</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,10)">Vía Peatonal</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(1,0)" *ngIf="categoriaActual == 1">Servicios</button>
+                        <div class="dropdown-divider" *ngIf="categoriaActual == 1"></div>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,1)" *ngIf="categoriaActual == 1">Drenaje</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,2)" *ngIf="categoriaActual == 1">Alumbrado Público</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,3)" *ngIf="categoriaActual == 1">Sanidad</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,4)" *ngIf="categoriaActual == 1">Dependencias Públicas</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,5)" *ngIf="categoriaActual == 1">Postes</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(2,0)" *ngIf="categoriaActual == 2">Vialidad</button>
+                        <div class="dropdown-divider" *ngIf="categoriaActual == 2"></div>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,6)" *ngIf="categoriaActual == 2">Vía Dañada</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,7)" *ngIf="categoriaActual == 2">Vía Obstruida</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,8)" *ngIf="categoriaActual == 2">Semáforo</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,9)" *ngIf="categoriaActual == 2">Tráfico</button>
+                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,10)" *ngIf="categoriaActual == 2">Vía Peatonal</button>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { PropuestaService } from 'src/app/services/propuesta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { PropuestaInterface } from "src/app/interfaces/propuesta.interface";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-propuesta-lista',
@@ -32,16 +33,23 @@ export class PropuestaListaComponent implements OnInit {
   propuestaActual: string;
   pdfActual;
 
-  constructor( private propuestaService: PropuestaService, private modalService: NgbModal ) {
-      propuestaService.obtenerPropuesta(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( propuestas => {
-        this.propuestasArr = propuestas.rcArr;
-        this.nPagSig = propuestas.nSig;
-        if(propuestas.rcArr.length === 0) {
-          this.bSinCoincidencias = true;
-        } else {
-          this.bSinCoincidencias = false;
-        }
-      });
+  constructor(
+    private propuestaService: PropuestaService,
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.params.subscribe( params => {
+      this.categoriaActual = params['categoria'];
+    } );
+    propuestaService.obtenerPropuesta(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( propuestas => {
+      this.propuestasArr = propuestas.rcArr;
+      this.nPagSig = propuestas.nSig;
+      if(propuestas.rcArr.length === 0) {
+        this.bSinCoincidencias = true;
+      } else {
+        this.bSinCoincidencias = false;
+      }
+    });
   }
 
   ngOnInit(): void {}

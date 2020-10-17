@@ -3,6 +3,7 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { RcService } from 'src/app/services/rc.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { RcInterface } from "src/app/interfaces/reporteC.interface";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reporte-ciudadano-lista',
@@ -32,17 +33,24 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   rcActual: string;
   pdfActual;
 
-  constructor( private rcService: RcService, private modalService: NgbModal ) {
-      rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
-        this.rcArr = rcs.rcArr;
-        this.nPagSig = rcs.nSig;
-        if(rcs.rcArr.length === 0) {
-          this.bSinCoincidencias = true;
-        } else {
-          this.bSinCoincidencias = false;
-        }
-      });
-  }
+  constructor(
+    private rcService: RcService,
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.params.subscribe( params => {
+      this.categoriaActual = params['categoria'];
+    } );
+    rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
+      this.rcArr = rcs.rcArr;
+      this.nPagSig = rcs.nSig;
+      if(rcs.rcArr.length === 0) {
+        this.bSinCoincidencias = true;
+      } else {
+        this.bSinCoincidencias = false;
+      }
+    } );
+}
 
   ngOnInit(): void {}
 

@@ -1,1 +1,86 @@
-<p>reporte-ciudadano-admi works!</p>
+<head>
+    <meta name="viewport" content="width=960, initial-scale=0.6, user-scalable=no">
+</head>
+
+<div id="mySidenav" class="sidenav">
+    <a id="logoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="bSidenavAct">LOGO</a>
+    <a id="fakelogoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="!bSidenavAct"><br></a>
+    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/QuejaAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Quejas</div>
+    </a>
+    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/PropuestaAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Propuestas</div>
+    </a>
+    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/ReporteCiAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes<br>Ciudadanos</div>
+    </a>
+    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes</div>
+    </a>
+    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Cerrar Sesion</div>
+    </a>
+</div>
+
+<!-- Cuerpo de la pagina -->
+<div id="main">
+    <!-- Encabezado a la derecha -->
+    <div class="container-fluid border-bottom">
+        <!-- Boton mostrar -->
+        <button type="button" class="btn btn-ligth desaparece shadow my-3 ml-3" (click)="openNav()" *ngIf="!bSidenavAct">
+            <fa-icon [icon]="faGripLines"></fa-icon>
+        </button>
+        <!-- Boton ocultar -->
+        <button type="button" class="btn btn-ligth shadow desaparece my-3 ml-3" (click)="closeNav()" *ngIf="bSidenavAct">
+            <fa-icon [icon]="faGripLines"></fa-icon>
+        </button>
+    </div>
+
+    <!-- Contenido de la pagina -->
+    <div class="container-fluid my-3" style="padding-left: 5%; padding-right: 5%;">
+        <!-- Titulo -->
+        <div class="row titulo mt-5 mb-3">
+            <p class="col text-center" style="font-family: Arial; font-weight: bold; font-size: 30px;">REPORTES CIUDADANOS</p>
+        </div>
+        <!-- Cards -->
+        <div class="row-cols-2">
+            <!-- Seguridad -->
+            <div class="col carta">
+                <a href="/ReporteCiLista/3" class="cartaVinculo">
+                    <div class="card mb-5 mx-auto shadow" style="width: 20rem; height: 23rem;">
+                        <img src="../../../assets/img/seguridad.png" class="card-img-top imgcard" alt="Servicios" width="100%" height="70%" />
+                        <div class="text-center my-auto">
+                            <h4 class="card-title" style="font-family: Arial; font-weight: bold">Seguridad</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Proteccion civil -->
+            <div class="col carta">
+                <a href="/ReporteCiLista/4" class="cartaVinculo">
+                    <div class="card mx-auto shadow" style="width: 20rem; height: 23rem;">
+                        <img src="../../../assets/img/proteccion_civil.png" class="card-img-top imgcard" alt="Vialidad" width="100%" height="70%" />
+                        <div class="text-center my-auto">
+                            <h4 class="card-title" style="font-family: Arial; font-weight: bold">Protección Civil</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
