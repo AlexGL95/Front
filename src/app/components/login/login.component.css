@@ -29,6 +29,8 @@
 
 .b2g {
     /* The image used */
+    position: absolute;
+    padding-top: 3%;
     background-image: url("../../../assets/img/login_admin.png");
     /* Full height */
     height: 100%;
@@ -36,8 +38,31 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    background-color: darkcyan;
+    padding-bottom: 15%;
+    width: 100%;
 }
 
 body {
     height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .b2g {
+        /* The image used */
+        padding-top: 3%;
+        background-image: url("../../../assets/img/login_admin.png");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: darkcyan;
+    }
+    .carsin {
+        width: 97%;
+    }
 }
