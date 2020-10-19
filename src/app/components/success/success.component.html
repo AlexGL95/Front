@@ -1,0 +1,39 @@
+<!--Nav bar superior simple-->
+<nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+    <div class="container-fluid">
+        <a class="navbar-brand TxtC">LOGO</a>
+    </div>
+</nav>
+<!--Fin de navbar superior simple-->
+
+<!-- Contenido de la pagina -->
+<div class="container-fluid my-3" style="padding-left: 5%; padding-right: 5%;">
+    <!-- Titulo -->
+    <div class="row">
+        <p class="col text-center" style="font-family: Arial; font-size: 50px; margin-top: 8%;">¡GRACIAS POR PARTICIPAR!</p>
+    </div>
+    <div class="row">
+        <p class="col text-center" style="font-family: Arial; font-size: 30px; position: relative; top: -15px;">Tu opinion es muy importante para nosotros</p>
+    </div>
+    <!-- Rectangulo -->
+    <div class="row mt-5">
+        <svg class="mx-auto" width="401" height="210">
+            <rect width="400" height="180" style="fill:#5e1932" />
+        </svg>
+    </div>
+    <div class="row">
+        <div class="card mx-auto" style="position: relative; top: -180px;">
+            <div class="card-body">
+                <p class="col text-center" style="font-family: Arial; font-size: 18px; margin-top: 8%;">EL FOLIO DE TU {{tipo}} ES:</p>
+                <p class="col text-center" style="font-family: Arial; font-size: 28px; font-weight: bold; margin-top: 8%;">{{folio}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row imagen" *ngIf="(tipo == 'QUEJA') || (tipo == 'PROPUESTA')">
+        <img src="../../../assets/img/icons/iconomailbox.svg" alt="mailbox" width="100%" height="100%">
+    </div>
+    <div class="row imagen" *ngIf="(tipo == 'REPORTE')">
+        <img src="../../../assets/img/icons/iconomailbox2.svg" alt="mailbox" width="100%" height="100%" >
+    </div>
+
+</div>
