@@ -21,7 +21,9 @@ import { QuejaListaComponent } from './components/queja-lista/queja-lista.compon
 import { PropuestaListaComponent } from './components/propuesta-lista/propuesta-lista.component';
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { from } from 'rxjs';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 
 @NgModule({
   declarations: [
@@ -40,14 +42,17 @@ import { from } from 'rxjs';
     ReporteCiudadanoAdmiComponent,
     QuejaListaComponent,
     PropuestaListaComponent,
-    ReporteCiudadanoListaComponent
+    ReporteCiudadanoListaComponent,
+    PdfViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    HttpClientModule,
+    NgbModule,
+    PdfViewerModule
     FormsModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

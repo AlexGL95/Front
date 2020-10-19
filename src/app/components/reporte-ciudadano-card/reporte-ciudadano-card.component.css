@@ -1,0 +1,85 @@
+/*Texto y color de nabvar*/
+
+.BG {
+    background-color: #34051C;
+}
+
+.TxtC {
+    color: white;
+    font: Arial;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.imgcard {
+    height: 40%;
+}
+
+
+/*Fin de texto y color de navbar*/
+
+.regreso {
+    color: black;
+    font: Arial;
+    font-size: 17px;
+}
+
+.titulo {
+    font: Arial;
+    font-weight: bold;
+}
+
+.imag {
+    visibility: hidden;
+    width: 0%;
+}
+
+[class*="col-"] {
+    width: 100%;
+}
+
+.cardspace {
+    width: auto;
+}
+
+.lin {
+    text-decoration: none;
+    color: black;
+}
+
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+.mt2 {
+    margin-top: 10%;
+}
+
+.hgh {
+    height: auto;
+}
+
+@media only screen and (min-width: 880px) {
+    /* For desktop: */
+    .cardspace {
+        max-width: 50%;
+    }
+    .imag {
+        visibility: visible;
+        width: 50%;
+        margin-left: 0%;
+        margin-right: 1%;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    color: black;
+    font-family: 'Opens Sans', helvetica;
+    height: 100%;
+    width: 101%;
+    margin: 0px;
+    padding: 0px;
+}

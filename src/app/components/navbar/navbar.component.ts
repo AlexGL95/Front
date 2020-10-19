@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit {
   faChartLine = faChartLine;
   faSignOutAlt = faSignOutAlt;
 
-    //Variables
-    bSidenavAct = false;
+  // Variables
+  bSidenavAct = false;
 
   constructor() {}
 
