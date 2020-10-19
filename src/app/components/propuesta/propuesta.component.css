@@ -1,27 +1,31 @@
 .positiontop{
     position: absolute;
-    top: 35px;
+    top: -10px;
     left: 30px;
     background: white;
   }
 
+  *:focus{
+      outline: 0;
+      box-shadow: none;
+  }
+
 .positiontop2{
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: 30px;
     background: white;
 }
 
 .botontop{
-    position: absolute;
-    top: 0px;
-    left: 83.8%;
+    height: 90%;
+    
     background: white;
 }
 
 .positiontop3{
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: 30px;
     background: white;
 }
@@ -29,7 +33,9 @@
 .botontop2{
     position: absolute;
     top: 0px;
-    left: 93.3%;
+    left: 74.5%;
+    width: 24%;
+    height: 70%;
     background: white;
 }
 
@@ -37,4 +43,65 @@
     position: absolute;
     left: 50%;
     background: white;
+}
+
+.imag {
+    visibility: hidden;
+    width: 0%;
+}
+
+.titulo {
+    font: Arial;
+}
+
+.text1{
+    position: relative;
+    font-size: 50%;
+    top: -2px;
+}
+
+.text2{
+    font-size: 70%;
+}
+
+.hgh {
+    height: auto;
+}
+
+
+.container1 {
+    padding: 4%;
+    padding-bottom: 15%;
+}
+
+.container2 {
+    padding-bottom: 7%;
+}
+
+.file1{
+    height: 50%;
+    left: 76%;
+    top: -38px;
+    background: white;
+    width: 24%;
+}
+
+.inputfile1{
+    position: relative;
+}
+
+.regresar1{
+    position: absolute;
+}
+
+@media only screen and (min-width: 1200px) {
+    /* For desktop: */
+    .cardspace {
+        max-width: 50%;
+    }
+    .imag {
+        visibility: visible;
+        width: 50%;
+        margin-left: 1%;
+    }
 }
