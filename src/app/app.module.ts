@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
+import { SuccessComponent } from './components/success/success.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
     QuejaListaComponent,
     PropuestaListaComponent,
     ReporteCiudadanoListaComponent,
-    PdfViewComponent
+    PdfViewComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

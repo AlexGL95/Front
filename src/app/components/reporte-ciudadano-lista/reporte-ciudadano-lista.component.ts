@@ -110,6 +110,7 @@ export class ReporteCiudadanoListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
         this.rcArr = rcs.rcArr;
         this.nPagSig = rcs.nSig;
