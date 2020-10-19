@@ -110,6 +110,7 @@ export class QuejaListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
         this.quejasArr = quejas.rcArr;
         this.nPagSig = quejas.nSig;

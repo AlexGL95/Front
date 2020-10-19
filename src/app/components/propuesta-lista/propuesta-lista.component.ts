@@ -110,6 +110,7 @@ export class PropuestaListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.propuestaService.obtenerPropuesta(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( propuestas => {
         this.propuestasArr = propuestas.rcArr;
         this.nPagSig = propuestas.nSig;
@@ -129,7 +130,7 @@ export class PropuestaListaComponent implements OnInit {
               const file = new Blob([data], { type: 'application/pdf' });
               this.pdfActual = URL.createObjectURL(file);
               this.abrirModal(contenido)
-              //window.open(fileURL);
+              //window.open(this.pdfActual);
             }
           );
     }
