@@ -3,8 +3,9 @@ import { PropuestaService } from 'src/app/services/propuesta.service';
 import { Propuesta } from '../../interfaces/propuesta';
 import { ThrowStmt } from '@angular/compiler';
 import { Colonias } from 'src/app/interfaces/colonias';
-import { ActivatedRoute } from '@angular/router';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { ActivatedRoute, Router } from '@angular/router';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -16,6 +17,8 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./propuesta.component.css']
 })
 export class PropuestaComponent implements OnInit {
+
+  LoginForm: FormGroup;
 
   faChevronLeft = faChevronLeft;
 
@@ -38,9 +41,13 @@ export class PropuestaComponent implements OnInit {
   evidencia: HTMLInputElement;
   tipo: HTMLInputElement;
 
+  exito: boolean = false;
+  fracaso: boolean = false;
+
 
   constructor(private propuestaService: PropuestaService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { this.LoginForm = this.createFormGroup();   }
 
   ngOnInit(): void {
 
@@ -62,8 +69,11 @@ export class PropuestaComponent implements OnInit {
   encontrarColonias(){
     this.propuestaService.obtenerColonias(parseInt(this.codigo)).subscribe(col => {
       this.cols = col.response.colonia;
+      this.exito = true;
+      this.fracaso = false;
     }, err =>
-    console.log(err))
+    {this.exito = false;
+      this.fracaso = true;})
     
   }
 
@@ -84,8 +94,10 @@ export class PropuestaComponent implements OnInit {
       await this.propuestaService.adjuntarArchivosP(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.propuestaService.guardarPropuesta(this.crearP).subscribe(prop => {
         console.log(prop);
+        this.router.navigate([`Success/:${prop}`])
       }, err => 
       console.log(err));
+      
     } else{
       console.log('error');
     }
@@ -100,5 +112,13 @@ export class PropuestaComponent implements OnInit {
       this.evidencia.value = this.file.name;
     }
   }
+
+  createFormGroup(){
+    return new FormGroup({
+      email1: new FormControl('', [Validators.required, Validators.email]),
+    });
+  }
+
+  get email1(){ return this.LoginForm.get('email1'); }
 
 }
