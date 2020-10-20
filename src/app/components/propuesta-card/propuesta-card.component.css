@@ -71,6 +71,11 @@
         width: 50%;
         margin-left: 0%;
         margin-right: 1%;
+        height: 50%;
+    }
+    .al {
+        height: 50%;
+        position: absolute;
     }
 }
 
@@ -78,7 +83,6 @@ body {
     overflow-x: hidden;
     color: black;
     font-family: 'Opens Sans', helvetica;
-    height: 100%;
     width: 101%;
     margin: 0px;
     padding: 0px;

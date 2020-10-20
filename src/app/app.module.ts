@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { SuccessComponent } from './components/success/success.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GraficaComponent } from './components/grafica/grafica.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 
@@ -50,6 +51,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,

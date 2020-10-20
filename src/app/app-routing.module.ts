@@ -15,27 +15,29 @@ import { ReporteCiudadanoComponent } from './components/reporte-ciudadano/report
 import { ReporteCiudadanoAdmiComponent } from './components/reporte-ciudadano-admi/reporte-ciudadano-admi.component';
 import { ReporteCiudadanoCardComponent } from './components/reporte-ciudadano-card/reporte-ciudadano-card.component';
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
+import { AuthGuard } from './auth.guard';
+import { LogGuard } from './log.guard';
 import { SuccessComponent } from './components/success/success.component';
 import { GraficaComponent } from './components/grafica/grafica.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } },
-  { path: 'Login', component: LoginComponent, data: { title: 'Login' }  },
-  { path: 'Navbar', component: NavbarComponent },
+  { path: 'Login', component: LoginComponent, data: { title: 'Login' }, canActivate: [LogGuard] },
   { path: 'Propuesta/:id/:area', component: PropuestaComponent, data: { title: 'Propuesta' }  },
-  { path: 'PropuestaAdmi', component: PropuestaAdmiComponent, data: { title: 'Propuesta Administrador' }  },
+  { path: 'PropuestaAdmi', component: PropuestaAdmiComponent, data: { title: 'Propuesta Administrador' }, canActivate: [AuthGuard]  },
   { path: 'PropuestaCard', component: PropuestaCardComponent, data: { title: 'Propuesta Selector' }  },
-  { path: 'PropuestaLista/:categoria', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }  },
+  { path: 'PropuestaLista/:categoria', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }, canActivate: [AuthGuard]  },
   { path: 'Queja/:id/:area', component: QuejaComponent, data: { title: 'Queja' }  },
-  { path: 'QuejaAdmi', component: QuejaAdmiComponent, data: { title: 'Queja Administrador' }  },
+  { path: 'QuejaAdmi', component: QuejaAdmiComponent, data: { title: 'Queja Administrador' }, canActivate: [AuthGuard]},
   { path: 'QuejaCard', component: QuejaCardComponent, data: { title: 'Queja Selector' }  },
-  { path: 'QuejaLista/:categoria', component: QuejaListaComponent, data: { title: 'Queja Lista' }  },
+  { path: 'QuejaLista/:categoria', component: QuejaListaComponent, data: { title: 'Queja Lista' }, canActivate: [AuthGuard]  },
   { path: 'ReporteCi/:id/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
-  { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }  },
+  { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }, canActivate: [AuthGuard]},
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
   { path: 'Grafica', component: GraficaComponent, data: { title: 'Reportes' }  },
   { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
+  { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }, canActivate: [AuthGuard]  },
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
