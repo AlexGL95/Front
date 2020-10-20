@@ -1,43 +1,43 @@
-.positiontop{
+.positiontop {
     position: absolute;
     top: -10px;
     left: 30px;
     background: white;
-  }
+}
 
-  *:focus{
-      outline: 0;
-      box-shadow: none;
-  }
+*:focus {
+    outline: 0;
+    box-shadow: none;
+}
 
-.positiontop2{
+.positiontop2 {
     position: absolute;
     top: -8px;
     left: 30px;
     background: white;
 }
 
-.positiontop4{
+.positiontop4 {
     position: relative;
     top: -50px;
     left: 53%;
     background: white;
 }
 
-.botontop{
+.botontop {
     height: 90%;
     z-index: 4;
-    background:  #145a32;
+    background: #145a32;
 }
 
-.positiontop3{
+.positiontop3 {
     position: absolute;
     top: -8px;
     left: 30px;
     background: white;
 }
 
-.botontop2{
+.botontop2 {
     position: absolute;
     top: 0px;
     left: 74.5%;
@@ -46,7 +46,7 @@
     background: white;
 }
 
-.botontop3{
+.botontop3 {
     position: absolute;
     left: 50%;
     background-color: #3f1121;
@@ -61,14 +61,14 @@
     font: Arial;
 }
 
-.text1{
+.text1 {
     position: relative;
     font-size: 50%;
     top: -2px;
     z-index: 3;
 }
 
-.text2{
+.text2 {
     font-size: 70%;
     z-index: 3;
 }
@@ -76,7 +76,6 @@
 .hgh {
     height: auto;
 }
-
 
 .container1 {
     padding: 4%;
@@ -87,23 +86,23 @@
     padding-bottom: 7%;
 }
 
-.file1{
+.file1 {
     height: 50%;
     left: 76%;
     top: -38px;
-    background:  #17202a;
+    background: #17202a;
     width: 24%;
 }
 
-.inputfile1{
+.inputfile1 {
     position: relative;
 }
 
-.regresar1{
+.regresar1 {
     position: absolute;
 }
 
-.check1{
+.check1 {
     position: absolute;
     top: 0px;
     left: 80%;
@@ -116,7 +115,7 @@
     font-size: 17px;
 }
 
-.inputposition1{
+.inputposition1 {
     width: 75%;
 }
 
@@ -133,6 +132,23 @@
 
 .BG {
     background-color: #34051C;
+}
+
+.b2g {
+    /* The image used */
+    position: fixed;
+    padding-top: 3%;
+    background-image: url("../../../assets/img/propuest.png");
+    /* Full height */
+    height: 5%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: darkcyan;
+    object-fit: cover;
+    width: 50%;
 }
 
 @media only screen and (min-width: 1200px) {

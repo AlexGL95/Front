@@ -87,3 +87,21 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+.b2g {
+    /* The image used */
+    position: fixed;
+    padding-top: 3%;
+    background-image: url("../../../assets/img/propuesta.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: darkcyan;
+    padding-bottom: 15%;
+    object-fit: cover;
+    width: 75%;
+}
