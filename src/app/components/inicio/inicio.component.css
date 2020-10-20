@@ -1,0 +1,21 @@
+/*Texto y color de nabvar*/
+
+.BG {
+    background-color: #34051C;
+}
+
+.TxtC {
+    color: white;
+    font: Arial;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.sinpadding {
+    padding: 0;
+}
+
+a.cartaVinculo,
+a.cartaVinculo:hover {
+    color: inherit;
+}

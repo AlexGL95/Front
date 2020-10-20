@@ -50,7 +50,8 @@ import { ToastrModule } from 'ngx-toastr';
     ReporteCiudadanoListaComponent,
     PdfViewComponent,
     GraficaComponent,
-    EvidenciaPComponent
+    EvidenciaPComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
