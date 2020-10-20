@@ -17,6 +17,7 @@ import { ReporteCiudadanoCardComponent } from './components/reporte-ciudadano-ca
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
 import { AuthGuard } from './auth.guard';
 import { LogGuard } from './log.guard';
+import { SuccessComponent } from './components/success/success.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'ReporteCi/:id/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
   { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }, canActivate: [AuthGuard]},
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
+  { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }, canActivate: [AuthGuard]  },
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];

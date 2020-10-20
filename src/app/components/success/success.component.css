@@ -1,0 +1,26 @@
+.BG {
+    background-color: #3f1121;
+}
+
+.TxtC {
+    color: white;
+    font: Arial;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.imagen {
+    position: absolute;
+    top: 67%;
+    width: 33%;
+    height: 33%;
+}
+
+@media only screen and (max-width: 960px) {
+    .imagen {
+        position: relative;
+        top: -100px;
+        width: 75%;
+        height: 75%;
+    }
+}
