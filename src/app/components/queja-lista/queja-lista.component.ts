@@ -72,6 +72,20 @@ export class QuejaListaComponent implements OnInit {
       this.bSidenavAct = false;
     }
 
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
+      this.bSidenavAct = false;
+    }
+
     logout(){
       this.auth.logOut();
       this.router.navigate(['/Login']);
