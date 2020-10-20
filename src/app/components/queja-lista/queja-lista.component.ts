@@ -33,6 +33,7 @@ export class QuejaListaComponent implements OnInit {
   paginaActual = 1;
   quejaActual: string;
   pdfActual;
+  etiqueta = '';
 
   constructor(
     private quejaService: QuejaService,
@@ -69,6 +70,20 @@ export class QuejaListaComponent implements OnInit {
     closeNav() {
       document.getElementById("mySidenav").style.width = "100px";
       document.getElementById("main").style.marginLeft = "100px";
+      this.bSidenavAct = false;
+    }
+
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
       this.bSidenavAct = false;
     }
 
@@ -115,8 +130,8 @@ export class QuejaListaComponent implements OnInit {
     }
 
     // Pagina antigua
-    filtro( categoria: number, area: number ) {
-      this.categoriaActual = categoria;
+    filtro( categoria: number, area: number, etiqueta: string ) {
+      this.etiqueta = etiqueta;
       this.areaActual = area;
       this.paginaActual = 1;
       this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {

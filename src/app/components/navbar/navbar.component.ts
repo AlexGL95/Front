@@ -43,6 +43,22 @@ export class NavbarComponent implements OnInit {
     this.bSidenavAct = false;
   }
 
+  // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+  openNavResp() {
+    document.getElementById("mySidenav").style.width = "380px";
+    document.getElementById("botonNav").style.marginLeft = "270px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    this.bSidenavAct = true;
+  }
+
+  // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+  closeNavResp() {
+    document.getElementById("mySidenav").style.width = "140px";
+    document.getElementById("botonNav").style.marginLeft = "0px";
+    document.body.style.backgroundColor = "white";
+    this.bSidenavAct = false;
+  }
+
   logout(){
   this.auth.logOut();
   this.router.navigate(['/Login']);

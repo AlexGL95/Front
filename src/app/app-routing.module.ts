@@ -46,3 +46,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';

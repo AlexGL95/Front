@@ -1,1 +1,205 @@
-<p>propuesta works!</p>
+<nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+    <div class="container-fluid">
+        <a class="navbar-brand TxtC">LOGO</a>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    
+    <div class="row">
+        <div class="col container1">
+            <div class="col">
+                <div class="form-group">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
+                        Regresar
+                    </a>
+                    <h2 align="center" class="titulo container2">PROPUESTA</h2>
+                </div>
+    
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop text2 titulo">
+                                    NOMBRE COMPLETO:
+                                </label>
+                                <input type="text" onkeypress="return (
+                                    (event.charCode >= 65 && event.charCode <= 90) || 
+                                    (event.charCode >= 97 && event.charCode <= 122) || 
+                                    (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
+                                    )" class="form-control" maxlength="200" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre">
+                                    <div class="container-fluid" *ngIf="nombre === '' || nombre === undefined">
+                                        * Nombre Requerido
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col-md-5 mt-3">
+                        <div class="formControl">
+                            <label for="name" class="positiontop2 text2 titulo">
+                                TELÉFONO:
+                            </label>
+                            <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="10" placeholder="Ej. (443)5612936" [(ngModel)]="telefono">
+                            <div class="container-fluid" *ngIf="telefono === '' || telefono === undefined">
+                                * Telefono Requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <form [formGroup]="LoginForm" action="">
+                            <label for="name" class="positiontop2 text2 titulo">
+                                CORREO ELECTRÓNICO:
+                            </label>
+                            <input type="text" formControlName="email1" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo" required #emai>
+                            <div class="alerta" *ngIf="email1.errors && (email1.dirty || email1.touched)">
+                                <div class="container-fluid" *ngIf="email1.errors.email">
+                                    *Debe introduciruna direccion de correo valida
+                                </div>
+                            </div>
+                            <div class="container-fluid" *ngIf="correo === '' || correo === undefined">
+                                * correo Requerido
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col-md-5 mt-4">
+                        <div class="formControl">
+
+                            <div class="input-group">
+                                <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="5" placeholder="Ej. 58280'" [(ngModel)]="codigo">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>
+                                </div>
+                            </div>
+                            <div class="container-fluid" *ngIf="codigo === '' || codigo === undefined">
+                                * Código Postal Requerido
+                            </div>
+
+                            <div class="container-fluid" *ngIf="exito">
+                                Búsqueda Exitosa En Colonias
+                            </div>
+
+                            <div class="container-fluid" *ngIf="fracaso">
+                                Búsqueda Fallida
+                            </div>
+
+                            <label for="name" class="positiontop2 text2 titulo">
+                                CÓDIGO POSTAL:
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="col mt-4">
+                        <div class="formControl">
+                            
+
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown">
+                                    {{otromensajeCol}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <div data-spy="scroll" class="scrollspy-example text-center">
+                                        <li *ngFor="let col of cols; index as i">
+                                            
+                                            <button type="button" class="btn btn-block form-control" (click)="selectCols(i, col)">{{col}}</button>
+                                            
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <div class="container-fluid" *ngIf="otromensajeCol === 'Colonias'">
+                                * Colonia Requerida
+                            </div>
+
+                            <label for="name" class="positiontop2 text2 titulo">
+                                COLONIA:
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop3 text2 titulo">
+                                    TIPO DE REPORTE:
+                                </label>
+                                <input type="text" class="form-control" id="tipo" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop3 text2 titulo">
+                                    PROBLEMA:
+                                </label>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="problema"></textarea>
+                                <div class="container-fluid" *ngIf="problema === '' || problema === undefined">
+                                    * Problama Requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop3 text2 titulo">
+                                    PROPUESTA:
+                                </label>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="propuesta"></textarea>
+                                <div class="container-fluid" *ngIf="propuesta === '' || propuesta === undefined">
+                                    * Propuesta Requerida
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+
+                    <div class="col mt-4">
+                        <div class="formControl">
+                            <label for="name" class="positiontop2 text2 titulo">
+                                ANEXAR DOCUMENTO:
+                            </label>
+                            
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" id="evidencia" disabled>
+                                <input type="file" class="d-none file1" (change)="onPDFSelect($event)" #PDFInput>
+                                <div class="input-group-append">
+                                <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">ADJUNTAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn btn-outline-secondary botontop3" type="button" (click)="enviar()">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="imag">
+            <img src="../../../assets/img/propuesta.png" class="imgcard">
+        </div>
+    </div>
+
+</div>

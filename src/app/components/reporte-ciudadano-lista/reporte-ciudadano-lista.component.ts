@@ -33,6 +33,7 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   paginaActual = 1;
   rcActual: string;
   pdfActual;
+  etiqueta = '';
 
   constructor(
     private rcService: RcService,
@@ -76,6 +77,20 @@ logout(){
       this.bSidenavAct = false;
     }
 
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
+      this.bSidenavAct = false;
+    }
+
   /* Cuerpo de la pagina */
     // Pagina siguiente
     paginaSig() {
@@ -114,8 +129,8 @@ logout(){
     }
 
     // Pagina antigua
-    filtro( categoria: number, area: number ) {
-      this.categoriaActual = categoria;
+    filtro( categoria: number, area: number, etiqueta: string ) {
+      this.etiqueta = etiqueta;
       this.areaActual = area;
       this.paginaActual = 1;
       this.rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
