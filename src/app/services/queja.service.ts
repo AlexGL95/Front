@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Queja } from '../interfaces/queja';
+import { Colonias } from '../interfaces/colonias';
 import { QuejaInterface } from '../interfaces/queja.interface';
 
 @Injectable({
@@ -7,23 +9,55 @@ import { QuejaInterface } from '../interfaces/queja.interface';
 })
 export class QuejaService {
 
-  constructor( private http: HttpClient ) {}
+  URIqueja = 'http://localhost:3000/queja';
+  URIcategoria = 'http://localhost:3000/categoria';
+  URIsempomex = 'https://api-sepomex.hckdrk.mx/query/get_colonia_por_cp'
 
-  URL_QUEJAS = 'http://localhost:3000/queja';
+  constructor(private http: HttpClient) { }
 
-  obtenerQueja( categoria: number, area: number, pagina: number) {
-    return this.http.get<{rcArr: QuejaInterface[], nSig: number}>(this.URL_QUEJAS + `/${categoria}/${area}/${pagina}`);
+  guardarQueja(queja: Queja){
+    return this.http.post(this.URIqueja, queja);
   }
 
   verQueja( id: number ) {
-      const httpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-      });
-      const options = {
-        headers: httpHeaders,
-        responseType: 'blob' as 'json'
-      };
-      return this.http.get<any>(this.URL_QUEJAS + `/${id}`, options);
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const options = {
+      headers: httpHeaders,
+      responseType: 'blob' as 'json'
+    };
+    return this.http.get<any>(this.URIqueja + `/${id}`, options);
+}
+
+  obtenerQueja( categoria: number, area: number, pagina: number) {
+    return this.http.get<{rcArr: QuejaInterface[], nSig: number}>(this.URIqueja + `/${categoria}/${area}/${pagina}`);
+  }
+
+  adjuntarArchivosQ(file: File){
+    const fd = new FormData();
+    fd.append('evidencia', file);
+    return this.http.post(`${this.URIqueja}/filesQ`, fd);
+  }
+
+  obtenerColonias(codigo: number){
+    return this.http.get<Colonias>(`${this.URIsempomex}/${codigo}`)
+  }
+
+  obtenerCategorias(){
+    return this.http.get(this.URIcategoria);
+  }
+
+  obtenerAreasP(){
+    return this.http.get(`${this.URIcategoria}/areap`)
+  }
+
+  obtenerAreasQ(){
+    return this.http.get(`${this.URIcategoria}/areaq`)
+  }
+
+  obtenerAreasRC(){
+    return this.http.get(`${this.URIcategoria}/arearc`)
   }
 
 }

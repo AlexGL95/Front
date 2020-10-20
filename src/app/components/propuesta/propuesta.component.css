@@ -1,0 +1,136 @@
+.positiontop{
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    background: white;
+  }
+
+  *:focus{
+      outline: 0;
+      box-shadow: none;
+  }
+
+.positiontop2{
+    position: absolute;
+    top: -8px;
+    left: 30px;
+    background: white;
+}
+
+.botontop{
+    height: 90%;
+    
+    background:  #145a32;
+}
+
+.positiontop3{
+    position: absolute;
+    top: -8px;
+    left: 30px;
+    background: white;
+}
+
+.botontop2{
+    position: absolute;
+    top: 0px;
+    left: 74.5%;
+    width: 24%;
+    height: 70%;
+    background:  #17202a 
+}
+
+.regreso {
+    position: absolute;
+    color: black;
+    font: Arial;
+    font-size: 17px;
+}
+
+.botontop3{
+    position: absolute;
+    left: 50%;
+    background-color: #3f1121;
+}
+
+.imag {
+    visibility: hidden;
+    width: 0%;
+}
+
+.titulo {
+    font: Arial;
+}
+
+.text1{
+    position: relative;
+    font-size: 50%;
+    top: -2px;
+}
+
+.text2{
+    font-size: 70%;
+    z-index: 3;
+}
+
+.hgh {
+    height: auto;
+}
+
+
+.container1 {
+    padding: 4%;
+    padding-bottom: 15%;
+}
+
+.container2 {
+    padding-bottom: 7%;
+}
+
+.file1{
+    height: 50%;
+    left: 76%;
+    top: -38px;
+    background:  #17202a;
+    width: 24%;
+}
+
+.inputfile1{
+    position: relative;
+}
+
+.regresar1{
+    position: absolute;
+}
+
+.scrollspy-example {
+    position: relative;
+    height: 100px;
+    overflow: auto;
+}
+
+.imgcard {
+    height: 40%;
+}
+
+.TxtC {
+    color: white;
+    font: Arial;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.BG {
+    background-color: #34051C;
+}
+
+@media only screen and (min-width: 1200px) {
+    /* For desktop: */
+    .cardspace {
+        max-width: 50%;
+    }
+    .imag {
+        visibility: visible;
+        width: 50%;
+        margin-left: 1%;
+    }
+}

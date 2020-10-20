@@ -1,1 +1,153 @@
-<p>reporte-ciudadano works!</p>
+<nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+    <div class="container-fluid">
+        <a class="navbar-brand TxtC">LOGO</a>
+    </div>
+</nav>
+<div class="container-fluid">
+    
+    <div class="row">
+        <div class="col container1">
+            <div class="col">
+                <div class="form-group">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
+                        Regresar
+                    </a>
+                    <h2 align="center" class="titulo container2">REPORTE CIUDADANO</h2>
+                </div>
+    
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop text2 titulo">
+                                    NOMBRE COMPLETO*:
+                                </label>
+                                <input type="text" onkeypress="return (
+                                    (event.charCode >= 65 && event.charCode <= 90) || 
+                                    (event.charCode >= 97 && event.charCode <= 122) || 
+                                    (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
+                                    )" class="form-control inputposition1" maxlength="200" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre" id="nombre">
+                                <div class="custom-control custom-checkbox check1">
+                                    <input type="checkbox" (click)="anonimo()" class="custom-control-input check1" id="anonimo">
+                                    <label class="custom-control-label" for="anonimo">ANONIMO</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col-md-5 mt-3">
+                        <div class="formControl">
+                            <label for="name" class="positiontop2 text2 titulo">
+                                TELÉFONO*:
+                            </label>
+                            <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="10" placeholder="Ej. (443)5612936" [(ngModel)]="telefono" id="telefono">
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <label for="name" class="positiontop2 text2 titulo">
+                            CORREO ELECTRÓNICO*:
+                        </label>
+                        <input type="text" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo" id="correo">
+                        
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col-md-5 mt-4">
+                        <div class="formControl">
+                            
+                            <div class="input-group mb-3 form-group">
+                                <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="5" placeholder="Ej. 58280'" [(ngModel)]="codigo" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>
+                                </div>
+                              </div>
+
+                            <label for="name" class="positiontop2 text2 titulo">
+                                CÓDIGO POSTAL*:
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col mt-4">
+                        <div class="formControl">
+                           
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown">
+                                    {{otromensajeCol}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let col of cols; index as i">
+                                        <button type="button" class="btn btn-block" (click)="selectCols(i, col)">{{col}}</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <label for="name" class="positiontop2 text2 titulo">
+                                COLONIA*:
+                            </label>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop3 text2 titulo">
+                                    TIPO DE REPORTE*:
+                                </label>
+                                <input type="text" class="form-control" id="tipo" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="formControl">
+                                <label for="name" class="positiontop3 text2 titulo">
+                                    ESCRIBE TU REPORTE*:
+                                </label>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="reporte"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+
+                    <div class="col mt-4">
+                        <div class="formControl">
+                            <label for="name" class="positiontop2 text2 titulo">
+                                ANEXAR DOCUMENTO*:
+                            </label>
+                            
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" id="evidencia" disabled>
+                                <input type="file" class="d-none file1" (change)="onPDFSelect($event)" #PDFInput>
+                                <div class="input-group-append">
+                                <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">ADJUNTAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn btn-outline-secondary botontop3" type="button" (click)="enviar()">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="imag">
+            <img src="../../../assets/img/propuest.png" class="img-fluid">
+        </div>
+    </div>
+
+</div>
