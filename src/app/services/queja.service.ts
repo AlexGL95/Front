@@ -1,3 +1,4 @@
+// tslint:disable: typedef
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Queja } from '../interfaces/queja';
@@ -60,4 +61,7 @@ export class QuejaService {
     return this.http.get(`${this.URIcategoria}/arearc`)
   }
 
+  verQuejaGraph( categoria: number, area: number, fechaIni: string, fechaFin: string ) {
+    return this.http.get<[]>(this.URIqueja + `/graph/${categoria}/${area}/` + fechaIni + '/' + fechaFin);
+  }
 }
