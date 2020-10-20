@@ -33,6 +33,7 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   paginaActual = 1;
   rcActual: string;
   pdfActual;
+  etiqueta = '';
 
   constructor(
     private rcService: RcService,
@@ -128,8 +129,8 @@ logout(){
     }
 
     // Pagina antigua
-    filtro( categoria: number, area: number ) {
-      this.categoriaActual = categoria;
+    filtro( categoria: number, area: number, etiqueta: string ) {
+      this.etiqueta = etiqueta;
       this.areaActual = area;
       this.paginaActual = 1;
       this.rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
