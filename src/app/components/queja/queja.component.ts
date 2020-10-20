@@ -3,8 +3,9 @@ import { Queja } from '../../interfaces/queja';
 import { ThrowStmt } from '@angular/compiler';
 import { Colonias } from 'src/app/interfaces/colonias';
 import { QuejaService } from 'src/app/services/queja.service';
-import { ActivatedRoute } from '@angular/router';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { ActivatedRoute, Router } from '@angular/router';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -16,6 +17,8 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./queja.component.css']
 })
 export class QuejaComponent implements OnInit {
+
+  LoginForm: FormGroup;
 
   faChevronLeft = faChevronLeft;
 
@@ -43,9 +46,12 @@ export class QuejaComponent implements OnInit {
   check: HTMLInputElement;
   tipo: HTMLInputElement;
 
+  exito: boolean = false;
+  fracaso: boolean = false;
 
   constructor(private quejaService: QuejaService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { this.LoginForm = this.createFormGroup();  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(param => {
@@ -65,8 +71,11 @@ export class QuejaComponent implements OnInit {
   encontrarColonias(){
     this.quejaService.obtenerColonias(parseInt(this.codigo)).subscribe(col => {
       this.cols = col.response.colonia;
+      this.exito = true;
+      this.fracaso = false;
     }, err =>
-    console.log(err))
+    {this.exito = false;
+      this.fracaso = true;})
   }
 
   async enviar(){
@@ -85,6 +94,7 @@ export class QuejaComponent implements OnInit {
       await this.quejaService.adjuntarArchivosQ(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.quejaService.guardarQueja(this.crearQ).subscribe(prop => {
         console.log(prop);
+        this.router.navigate([`Success/:${prop}`])
       }, err => 
       console.log(err));
     } else{
@@ -124,5 +134,13 @@ export class QuejaComponent implements OnInit {
       this.correoI.disabled = false;
     }
   }
+
+  createFormGroup(){
+    return new FormGroup({
+      email1: new FormControl('', [Validators.required, Validators.email]),
+    });
+  }
+
+  get email1(){ return this.LoginForm.get('email1'); }
 
 }

@@ -3,8 +3,9 @@ import { Reporte } from '../../interfaces/reporte';
 import { ThrowStmt } from '@angular/compiler';
 import { Colonias } from 'src/app/interfaces/colonias';
 import { ReporteService } from 'src/app/services/reporte.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -16,6 +17,8 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./reporte-ciudadano.component.css']
 })
 export class ReporteCiudadanoComponent implements OnInit {
+
+  LoginForm: FormGroup;
 
   faChevronLeft = faChevronLeft;
 
@@ -43,8 +46,12 @@ export class ReporteCiudadanoComponent implements OnInit {
 
   tipo: HTMLInputElement;
 
+  exito: boolean = false;
+  fracaso: boolean = false;
+
   constructor(private reporteService: ReporteService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) {this.LoginForm = this.createFormGroup(); }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(param => {
@@ -64,8 +71,11 @@ export class ReporteCiudadanoComponent implements OnInit {
   encontrarColonias(){
     this.reporteService.obtenerColonias(parseInt(this.codigo)).subscribe(col => {
       this.cols = col.response.colonia;
+      this.exito = true;
+      this.fracaso = false;
     }, err =>
-    console.log(err))
+    {this.exito = false;
+      this.fracaso = true;})
   }
 
   async enviar(){
@@ -84,6 +94,7 @@ export class ReporteCiudadanoComponent implements OnInit {
       await this.reporteService.adjuntarArchivosRC(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.reporteService.guardarReporte(this.crearRC).subscribe(prop => {
         console.log(prop);
+        this.router.navigate([`Success/:${prop}`])
       }, err => 
       console.log(err));
     } else{
@@ -118,5 +129,13 @@ export class ReporteCiudadanoComponent implements OnInit {
       this.correoI.disabled = false;
     }
   }
+
+  createFormGroup(){
+    return new FormGroup({
+      email1: new FormControl('', [Validators.required, Validators.email]),
+    });
+  }
+
+  get email1(){ return this.LoginForm.get('email1'); }
 
 }

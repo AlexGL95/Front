@@ -21,13 +21,16 @@
                         <div class="form-group">
                             <div class="formControl">
                                 <label for="name" class="positiontop text2 titulo">
-                                    NOMBRE COMPLETO*:
+                                    NOMBRE COMPLETO:
                                 </label>
                                 <input type="text" onkeypress="return (
                                     (event.charCode >= 65 && event.charCode <= 90) || 
                                     (event.charCode >= 97 && event.charCode <= 122) || 
                                     (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
                                     )" class="form-control" maxlength="200" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre">
+                                    <div class="container-fluid" *ngIf="nombre === '' || nombre === undefined">
+                                        * Nombre Requerido
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -37,18 +40,29 @@
                     <div class="col-md-5 mt-3">
                         <div class="formControl">
                             <label for="name" class="positiontop2 text2 titulo">
-                                TELÉFONO*:
+                                TELÉFONO:
                             </label>
                             <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="10" placeholder="Ej. (443)5612936" [(ngModel)]="telefono">
+                            <div class="container-fluid" *ngIf="telefono === '' || telefono === undefined">
+                                * Telefono Requerido
+                            </div>
                         </div>
                     </div>
                     <div class="col mt-3">
-                        <div class="formControl">
+                        <form [formGroup]="LoginForm" action="">
                             <label for="name" class="positiontop2 text2 titulo">
-                                CORREO ELECTRÓNICO*:
+                                CORREO ELECTRÓNICO:
                             </label>
-                            <input type="text" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo">
-                        </div>
+                            <input type="text" formControlName="email1" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo" required #emai>
+                            <div class="alerta" *ngIf="email1.errors && (email1.dirty || email1.touched)">
+                                <div class="container-fluid" *ngIf="email1.errors.email">
+                                    *Debe introduciruna direccion de correo valida
+                                </div>
+                            </div>
+                            <div class="container-fluid" *ngIf="correo === '' || correo === undefined">
+                                * correo Requerido
+                            </div>
+                        </form>
                     </div>
                 </div>
         
@@ -62,9 +76,20 @@
                                   <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>
                                 </div>
                             </div>
+                            <div class="container-fluid" *ngIf="codigo === '' || codigo === undefined">
+                                * Código Postal Requerido
+                            </div>
+
+                            <div class="container-fluid" *ngIf="exito">
+                                Búsqueda Exitosa En Colonias
+                            </div>
+
+                            <div class="container-fluid" *ngIf="fracaso">
+                                Búsqueda Fallida
+                            </div>
 
                             <label for="name" class="positiontop2 text2 titulo">
-                                CÓDIGO POSTAL*:
+                                CÓDIGO POSTAL:
                             </label>
 
                         </div>
@@ -88,8 +113,12 @@
                                 </ul>
                             </div>
 
+                            <div class="container-fluid" *ngIf="otromensajeCol === 'Colonias'">
+                                * Colonia Requerida
+                            </div>
+
                             <label for="name" class="positiontop2 text2 titulo">
-                                COLONIA*:
+                                COLONIA:
                             </label>
 
                         </div>
@@ -101,7 +130,7 @@
                         <div class="form-group">
                             <div class="formControl">
                                 <label for="name" class="positiontop3 text2 titulo">
-                                    TIPO DE REPORTE*:
+                                    TIPO DE REPORTE:
                                 </label>
                                 <input type="text" class="form-control" id="tipo" disabled>
                             </div>
@@ -114,9 +143,12 @@
                         <div class="form-group">
                             <div class="formControl">
                                 <label for="name" class="positiontop3 text2 titulo">
-                                    PROBLEMA*:
+                                    PROBLEMA:
                                 </label>
                                 <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="problema"></textarea>
+                                <div class="container-fluid" *ngIf="problema === '' || problema === undefined">
+                                    * Problama Requerido
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,9 +159,12 @@
                         <div class="form-group">
                             <div class="formControl">
                                 <label for="name" class="positiontop3 text2 titulo">
-                                    PROPUESTA*:
+                                    PROPUESTA:
                                 </label>
                                 <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="propuesta"></textarea>
+                                <div class="container-fluid" *ngIf="propuesta === '' || propuesta === undefined">
+                                    * Propuesta Requerida
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,7 +175,7 @@
                     <div class="col mt-4">
                         <div class="formControl">
                             <label for="name" class="positiontop2 text2 titulo">
-                                ANEXAR DOCUMENTO*:
+                                ANEXAR DOCUMENTO:
                             </label>
                             
                             <div class="form-group mb-3">

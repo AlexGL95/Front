@@ -19,7 +19,7 @@
 
 .botontop{
     height: 90%;
-    
+    z-index: 4;
     background:  #145a32;
 }
 
