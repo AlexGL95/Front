@@ -27,7 +27,7 @@
 .botontop{
     height: 90%;
     
-    background: white;
+    background:  #145a32;
 }
 
 .positiontop3{
@@ -43,13 +43,13 @@
     left: 74.5%;
     width: 24%;
     height: 70%;
-    background: white;
+    background:  white;
 }
 
 .botontop3{
     position: absolute;
     left: 50%;
-    background: white;
+    background-color: #3f1121;
 }
 
 .imag {
@@ -69,6 +69,7 @@
 
 .text2{
     font-size: 70%;
+    z-index: 3;
 }
 
 .hgh {
@@ -89,7 +90,7 @@
     height: 50%;
     left: 76%;
     top: -38px;
-    background: white;
+    background:  #17202a;
     width: 24%;
 }
 
@@ -97,8 +98,11 @@
     position: relative;
 }
 
-.regresar1{
+.regreso {
     position: absolute;
+    color: black;
+    font: Arial;
+    font-size: 17px;
 }
 
 .check1{
@@ -109,6 +113,27 @@
 
 .inputposition1{
     width: 75%;
+}
+
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+.imgcard {
+    height: 40%;
+}
+
+.TxtC {
+    color: white;
+    font: Arial;
+    font-weight: bold;
+    margin-left: 4%;
+}
+
+.BG {
+    background-color: #34051C;
 }
 
 

@@ -24,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
+import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
     QuejaListaComponent,
     PropuestaListaComponent,
     ReporteCiudadanoListaComponent,
-    PdfViewComponent
+    PdfViewComponent,
+    EvidenciaPComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
     FontAwesomeModule,
     HttpClientModule,
     NgbModule,
-    PdfViewerModule
+    PdfViewerModule,
     FormsModule,
   ],
   providers: [],

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Propuesta } from '../interfaces/propuesta';
 import { Colonias } from '../interfaces/colonias';
+import { PropuestaInterface } from '../interfaces/propuesta.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,21 @@ export class PropuestaService {
   URIsempomex = 'https://api-sepomex.hckdrk.mx/query/get_colonia_por_cp'
 
   constructor(private http: HttpClient) { }
+
+  obtenerPropuesta( categoria: number, area: number, pagina: number) {
+    return this.http.get<{rcArr: PropuestaInterface[], nSig: number}>(this.URIpropuesta + `/${categoria}/${area}/${pagina}`);
+  }
+
+  verPropuesta( id: number ) {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const options = {
+      headers: httpHeaders,
+      responseType: 'blob' as 'json'
+    };
+    return this.http.get<any>(this.URIpropuesta + `/${id}`, options);
+  }
 
   guardarPropuesta(propuesta: Propuesta){
     return this.http.post(this.URIpropuesta, propuesta);
@@ -25,10 +42,6 @@ export class PropuestaService {
 
   obtenerColonias(codigo: number){
     return this.http.get<Colonias>(`${this.URIsempomex}/${codigo}`)
-  }
-
-  obtenerPropuesta(){
-    return this.http.get(this.URIpropuesta);
   }
 
   obtenerCategorias(){
@@ -45,36 +58,6 @@ export class PropuestaService {
 
   obtenerAreasRC(){
     return this.http.get(`${this.URIcategoria}/arearc`)
-  }
-
-}
-
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { PropuestaInterface } from '../interfaces/propuesta.interface';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class PropuestaService {
-
-  constructor( private http: HttpClient ) {}
-
-  URL_PROPUESTAS = 'http://localhost:3000/propuesta';
-
-  obtenerPropuesta( categoria: number, area: number, pagina: number) {
-    return this.http.get<{rcArr: PropuestaInterface[], nSig: number}>(this.URL_PROPUESTAS + `/${categoria}/${area}/${pagina}`);
-  }
-
-  verPropuesta( id: number ) {
-      const httpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-      });
-      const options = {
-        headers: httpHeaders,
-        responseType: 'blob' as 'json'
-      };
-      return this.http.get<any>(this.URL_PROPUESTAS + `/${id}`, options);
   }
 
 }

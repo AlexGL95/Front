@@ -1,10 +1,15 @@
+<nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+    <div class="container-fluid">
+        <a class="navbar-brand TxtC">LOGO</a>
+    </div>
+</nav>
 <div class="container-fluid">
     
     <div class="row">
         <div class="col container1">
             <div class="col">
                 <div class="form-group">
-                    <a [routerLink]="['/Inicio']" class="regresar1">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
                         Regresar
                     </a>
                     <h2 align="center" class="titulo container2">REPORTE CIUDADANO</h2>
@@ -21,7 +26,7 @@
                                     (event.charCode >= 65 && event.charCode <= 90) || 
                                     (event.charCode >= 97 && event.charCode <= 122) || 
                                     (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                    )" class="form-control inputposition1" maxlength="30" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre" id="nombre">
+                                    )" class="form-control inputposition1" maxlength="200" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre" id="nombre">
                                 <div class="custom-control custom-checkbox check1">
                                     <input type="checkbox" (click)="anonimo()" class="custom-control-input check1" id="anonimo">
                                     <label class="custom-control-label" for="anonimo">ANONIMO</label>
@@ -45,11 +50,7 @@
                         <label for="name" class="positiontop2 text2 titulo">
                             CORREO ELECTRÓNICO*:
                         </label>
-                        <input type="text" onkeypress="return (
-                        (event.charCode >= 65 && event.charCode <= 90) || 
-                        (event.charCode >= 97 && event.charCode <= 122) || 
-                        (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                        )" class="form-control" maxlength="30" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo" id="correo">
+                        <input type="text" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo" id="correo">
                         
                     </div>
                 </div>
@@ -98,7 +99,7 @@
                                 <label for="name" class="positiontop3 text2 titulo">
                                     TIPO DE REPORTE*:
                                 </label>
-                                <input type="text" class="form-control" disabled>
+                                <input type="text" class="form-control" id="tipo" disabled>
                             </div>
                         </div>
                     </div>
@@ -111,11 +112,7 @@
                                 <label for="name" class="positiontop3 text2 titulo">
                                     ESCRIBE TU REPORTE*:
                                 </label>
-                                <textarea type="text" onkeypress="return (
-                                    (event.charCode >= 65 && event.charCode <= 90) || 
-                                    (event.charCode >= 97 && event.charCode <= 122) || 
-                                    (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                    )" class="form-control" maxlength="30" placeholder="ESCRIBE UN COMENTARIO" [(ngModel)]="reporte"></textarea>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="reporte"></textarea>
                             </div>
                         </div>
                     </div>
@@ -148,8 +145,8 @@
             </div>
         </div>
     
-        <div class="border border-black imag ml1 container-fluid hgh">
-            imagen
+        <div class="imag">
+            <img src="../../../assets/img/propuest.png" class="img-fluid">
         </div>
     </div>
 

@@ -3,6 +3,8 @@ import { Queja } from '../../interfaces/queja';
 import { ThrowStmt } from '@angular/compiler';
 import { Colonias } from 'src/app/interfaces/colonias';
 import { QuejaService } from 'src/app/services/queja.service';
+import { ActivatedRoute } from '@angular/router';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -15,6 +17,8 @@ interface HtmlInputEvent extends Event{
 })
 export class QuejaComponent implements OnInit {
 
+  faChevronLeft = faChevronLeft;
+
   nombre = '';
   telefono = '';
   correo = '';
@@ -26,6 +30,8 @@ export class QuejaComponent implements OnInit {
   mensajeCol = ['Colonias'];
   otromensajeCol = 'Colonias';
 
+  categorias = ["Servicios", "Víalidad"];
+
   file: File;
   PDFSelected: string | ArrayBuffer;
 
@@ -35,11 +41,19 @@ export class QuejaComponent implements OnInit {
   telefonoI: HTMLInputElement;
   correoI: HTMLInputElement;
   check: HTMLInputElement;
+  tipo: HTMLInputElement;
 
 
-  constructor(private quejaService: QuejaService) { }
+  constructor(private quejaService: QuejaService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(param => {
+      if(param.has("id") && param.has("area")){
+        this.tipo = <HTMLInputElement> document.getElementById('tipo');
+        this.tipo.value = `${this.categorias[parseInt(param.get("id"))-1]}-${param.get("area")}`
+      }
+    })
   }
 
   selectCols(i: number, col: string){
@@ -57,6 +71,8 @@ export class QuejaComponent implements OnInit {
 
   async enviar(){
     //this.quejaService.adjuntarArchivosQ(this.file).subscribe(res => console.log(res), err => console.log(err));
+    let cat = parseInt(this.route.snapshot.paramMap.get('id'));
+    let ar = parseInt(this.route.snapshot.paramMap.get('id2'));
     if(this.codigo !== '' && this.codigo !== undefined && this.queja !== '' && this.queja !== undefined){
       this.crearQ.nombre = this.nombre;
       this.crearQ.telefono = this.telefono;
@@ -64,8 +80,8 @@ export class QuejaComponent implements OnInit {
       this.crearQ.cp = this.codigo;
       this.crearQ.colonia = this.colonia;
       this.crearQ.queja = this.queja;
-      this.crearQ.categoria = 1;
-      this.crearQ.area = 2;
+      this.crearQ.categoria = cat;
+      this.crearQ.area = ar;
       await this.quejaService.adjuntarArchivosQ(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.quejaService.guardarQueja(this.crearQ).subscribe(prop => {
         console.log(prop);

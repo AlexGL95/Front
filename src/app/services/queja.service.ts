@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Queja } from '../interfaces/queja';
 import { Colonias } from '../interfaces/colonias';
+import { QuejaInterface } from '../interfaces/queja.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,21 @@ export class QuejaService {
     return this.http.post(this.URIqueja, queja);
   }
 
+  verQueja( id: number ) {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const options = {
+      headers: httpHeaders,
+      responseType: 'blob' as 'json'
+    };
+    return this.http.get<any>(this.URIqueja + `/${id}`, options);
+}
+
+  obtenerQueja( categoria: number, area: number, pagina: number) {
+    return this.http.get<{rcArr: QuejaInterface[], nSig: number}>(this.URIqueja + `/${categoria}/${area}/${pagina}`);
+  }
+
   adjuntarArchivosQ(file: File){
     const fd = new FormData();
     fd.append('evidencia', file);
@@ -26,10 +42,6 @@ export class QuejaService {
 
   obtenerColonias(codigo: number){
     return this.http.get<Colonias>(`${this.URIsempomex}/${codigo}`)
-  }
-
-  obtenerQueja(){
-    return this.http.get(this.URIqueja);
   }
 
   obtenerCategorias(){
@@ -46,36 +58,6 @@ export class QuejaService {
 
   obtenerAreasRC(){
     return this.http.get(`${this.URIcategoria}/arearc`)
-  }
-
-}
-
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { QuejaInterface } from '../interfaces/queja.interface';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class QuejaService {
-
-  constructor( private http: HttpClient ) {}
-
-  URL_QUEJAS = 'http://localhost:3000/queja';
-
-  obtenerQueja( categoria: number, area: number, pagina: number) {
-    return this.http.get<{rcArr: QuejaInterface[], nSig: number}>(this.URL_QUEJAS + `/${categoria}/${area}/${pagina}`);
-  }
-
-  verQueja( id: number ) {
-      const httpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-      });
-      const options = {
-        headers: httpHeaders,
-        responseType: 'blob' as 'json'
-      };
-      return this.http.get<any>(this.URL_QUEJAS + `/${id}`, options);
   }
 
 }

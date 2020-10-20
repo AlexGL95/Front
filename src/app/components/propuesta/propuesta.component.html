@@ -1,10 +1,16 @@
+<nav style="width: 100%;" class="navbar navbar-expand-lg navbar-light BG">
+    <div class="container-fluid">
+        <a class="navbar-brand TxtC">LOGO</a>
+    </div>
+</nav>
+
 <div class="container-fluid">
     
     <div class="row">
         <div class="col container1">
             <div class="col">
                 <div class="form-group">
-                    <a [routerLink]="['/Inicio']" class="regresar1">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
                         Regresar
                     </a>
                     <h2 align="center" class="titulo container2">PROPUESTA</h2>
@@ -21,7 +27,7 @@
                                     (event.charCode >= 65 && event.charCode <= 90) || 
                                     (event.charCode >= 97 && event.charCode <= 122) || 
                                     (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                    )" class="form-control" maxlength="30" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre">
+                                    )" class="form-control" maxlength="200" placeholder="INGRESA NOMBRE" [(ngModel)]="nombre">
                             </div>
                         </div>
                     </div>
@@ -41,11 +47,7 @@
                             <label for="name" class="positiontop2 text2 titulo">
                                 CORREO ELECTRÓNICO*:
                             </label>
-                            <input type="text" onkeypress="return (
-                                (event.charCode >= 65 && event.charCode <= 90) || 
-                                (event.charCode >= 97 && event.charCode <= 122) || 
-                                (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                )" class="form-control" maxlength="30" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo">
+                            <input type="text" class="form-control" maxlength="150" placeholder="Ej. pedro123@hotmail.com" [(ngModel)]="correo">
                         </div>
                     </div>
                 </div>
@@ -76,9 +78,13 @@
                                     {{otromensajeCol}}
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li *ngFor="let col of cols; index as i">
-                                        <button type="button" class="btn btn-block form-control" (click)="selectCols(i, col)">{{col}}</button>
-                                    </li>
+                                    <div data-spy="scroll" class="scrollspy-example text-center">
+                                        <li *ngFor="let col of cols; index as i">
+                                            
+                                            <button type="button" class="btn btn-block form-control" (click)="selectCols(i, col)">{{col}}</button>
+                                            
+                                        </li>
+                                    </div>
                                 </ul>
                             </div>
 
@@ -97,7 +103,7 @@
                                 <label for="name" class="positiontop3 text2 titulo">
                                     TIPO DE REPORTE*:
                                 </label>
-                                <input type="text" class="form-control" disabled>
+                                <input type="text" class="form-control" id="tipo" disabled>
                             </div>
                         </div>
                     </div>
@@ -110,11 +116,7 @@
                                 <label for="name" class="positiontop3 text2 titulo">
                                     PROBLEMA*:
                                 </label>
-                                <textarea type="text" onkeypress="return (
-                                    (event.charCode >= 65 && event.charCode <= 90) || 
-                                    (event.charCode >= 97 && event.charCode <= 122) || 
-                                    (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                    )" class="form-control" maxlength="30" placeholder="ESCRIBE UN COMENTARIO" [(ngModel)]="problema"></textarea>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="problema"></textarea>
                             </div>
                         </div>
                     </div>
@@ -127,11 +129,7 @@
                                 <label for="name" class="positiontop3 text2 titulo">
                                     PROPUESTA*:
                                 </label>
-                                <textarea type="text" onkeypress="return (
-                                    (event.charCode >= 65 && event.charCode <= 90) || 
-                                    (event.charCode >= 97 && event.charCode <= 122) || 
-                                    (event.charCode === 32) || (event.charCode === 209)|| (event.charCode === 241)
-                                    )" class="form-control" maxlength="30" placeholder="ESCRIBE UN COMENTARIO" [(ngModel)]="propuesta"></textarea>
+                                <textarea type="text" class="form-control" maxlength="500" placeholder="ESCRIBE UN COMENTARIO (500 carácteres max.)" [(ngModel)]="propuesta"></textarea>
                             </div>
                         </div>
                     </div>
@@ -149,7 +147,7 @@
                                 <input type="text" class="form-control" id="evidencia" disabled>
                                 <input type="file" class="d-none file1" (change)="onPDFSelect($event)" #PDFInput>
                                 <div class="input-group-append">
-                                <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">Button</button>
+                                <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">ADJUNTAR</button>
                                 </div>
                             </div>
                         </div>
@@ -164,8 +162,8 @@
             </div>
         </div>
     
-        <div class="border border-black imag ml1 container-fluid hgh">
-            imagen
+        <div class="imag">
+            <img src="../../../assets/img/propuesta.png" class="imgcard">
         </div>
     </div>
 
