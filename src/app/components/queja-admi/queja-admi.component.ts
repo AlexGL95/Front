@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, faChartLine, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-queja-admi',
@@ -19,7 +21,10 @@ export class QuejaAdmiComponent implements OnInit {
   // Variables
   bSidenavAct = false;
 
-  constructor() { }
+  constructor(
+    private auth: AuthserviceService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -38,4 +43,9 @@ export class QuejaAdmiComponent implements OnInit {
       this.bSidenavAct = false;
     }
 
+    logout(){
+      this.auth.logOut();
+      this.router.navigate(['/Login']);
+      }
+    
 }

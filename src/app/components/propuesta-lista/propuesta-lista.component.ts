@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { PropuestaService } from 'src/app/services/propuesta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { PropuestaInterface } from "src/app/interfaces/propuesta.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-propuesta-lista',
@@ -36,7 +37,9 @@ export class PropuestaListaComponent implements OnInit {
   constructor(
     private propuestaService: PropuestaService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -139,4 +142,9 @@ export class PropuestaListaComponent implements OnInit {
       this.modalService.open( contenido, { centered: true, size: 'lg' } ).result;
     }
 
+    logout(){
+      this.auth.logOut();
+      this.router.navigate(['/Login']);
+      }
+    
 }
