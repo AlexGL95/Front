@@ -24,6 +24,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
 import { SuccessComponent } from './components/success/success.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,7 @@ import { SuccessComponent } from './components/success/success.component';
     PropuestaListaComponent,
     ReporteCiudadanoListaComponent,
     PdfViewComponent,
-    SuccessComponent,
+    GraficaComponent
     EvidenciaPComponent
   ],
   imports: [
@@ -56,6 +61,13 @@ import { SuccessComponent } from './components/success/success.component';
     HttpClientModule,
     NgbModule,
     PdfViewerModule,
+    GoogleChartsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
