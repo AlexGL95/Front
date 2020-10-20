@@ -5,33 +5,48 @@
 <div id="mySidenav" class="sidenav">
     <a id="logoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="bSidenavAct">LOGO</a>
     <a id="fakelogoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="!bSidenavAct"><br></a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/QuejaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+    <a class="row-cols-2 mx-2 my-3 rounded" href="/QuejaAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
             <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="70" height="70">
         </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Quejas</div>
     </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/PropuestaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+    <a class="row-cols-2 mx-2 my-3 rounded" href="/PropuestaAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style=" font-size: 30px;">
             <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style=" font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="70" height="70">
         </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Propuestas</div>
     </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/ReporteCiAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+    <a class="row-cols-2 mx-2 my-3 rounded" href="/ReporteCiAdmi">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
             <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="70" height="70">
         </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes<br>Ciudadanos</div>
     </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+    <a class="row-cols-2 mx-2 my-3 rounded" href="">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
             <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="70" height="70">
         </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes</div>
     </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
+    <a class="row-cols-2 mx-2 my-3 rounded" (click)="logout()">
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
             <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="35" height="35">
+        </div>
+        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
+            <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="70" height="70">
         </div>
         <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Cerrar Sesion</div>
     </a>
@@ -40,13 +55,21 @@
 <!-- Cuerpo de la pagina -->
 <div id="main">
     <!-- Encabezado a la derecha -->
-    <div class="container-fluid border-bottom">
-        <!-- Boton mostrar -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 desaparece" (click)="openNav()" *ngIf="!bSidenavAct">
+    <div id="botonNav" class="container-fluid border-bottom">
+        <!-- Boton mostrar no responsivo -->
+        <button type="button" class="btn btn-ligth shadow my-3 ml-3 normal" (click)="openNav()" *ngIf="!bSidenavAct">
             <fa-icon [icon]="faGripLines"></fa-icon>
         </button>
-        <!-- Boton ocultar -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 desaparece" (click)="closeNav()" *ngIf="bSidenavAct">
+        <!-- Boton ocultar no responsivo -->
+        <button type="button" class="btn btn-ligth shadow my-3 ml-3 normal" (click)="closeNav()" *ngIf="bSidenavAct">
+            <fa-icon [icon]="faGripLines"></fa-icon>
+        </button>
+        <!-- Boton mostrar responsivo -->
+        <button type="button" class="btn btn-ligth shadow my-3 ml-3 responsivo" (click)="openNavResp()" *ngIf="!bSidenavAct">
+            <fa-icon [icon]="faGripLines"></fa-icon>
+        </button>
+        <!-- Boton ocultar responsivo -->
+        <button type="button" class="btn btn-ligth shadow my-3 ml-3 responsivo" (click)="closeNavResp()" *ngIf="bSidenavAct">
             <fa-icon [icon]="faGripLines"></fa-icon>
         </button>
     </div>

@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { QuejaService } from 'src/app/services/queja.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { QuejaInterface } from "src/app/interfaces/queja.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-queja-lista',
@@ -36,7 +37,9 @@ export class QuejaListaComponent implements OnInit {
   constructor(
     private quejaService: QuejaService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -69,6 +72,25 @@ export class QuejaListaComponent implements OnInit {
       this.bSidenavAct = false;
     }
 
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
+      this.bSidenavAct = false;
+    }
+
+    logout(){
+      this.auth.logOut();
+      this.router.navigate(['/Login']);
+      }
+    
   /* Cuerpo de la pagina */
     // Pagina siguiente
     paginaSig() {
@@ -110,6 +132,7 @@ export class QuejaListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
         this.quejasArr = quejas.rcArr;
         this.nPagSig = quejas.nSig;

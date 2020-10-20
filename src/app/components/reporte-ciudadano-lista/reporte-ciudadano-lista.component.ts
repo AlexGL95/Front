@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { RcService } from 'src/app/services/rc.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { RcInterface } from "src/app/interfaces/reporteC.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-reporte-ciudadano-lista',
@@ -36,7 +37,9 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   constructor(
     private rcService: RcService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -51,6 +54,10 @@ export class ReporteCiudadanoListaComponent implements OnInit {
       }
     } );
 }
+logout(){
+  this.auth.logOut();
+  this.router.navigate(['/Login']);
+  }
 
   ngOnInit(): void {}
 
@@ -66,6 +73,20 @@ export class ReporteCiudadanoListaComponent implements OnInit {
     closeNav() {
       document.getElementById("mySidenav").style.width = "100px";
       document.getElementById("main").style.marginLeft = "100px";
+      this.bSidenavAct = false;
+    }
+
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
       this.bSidenavAct = false;
     }
 
@@ -110,6 +131,7 @@ export class ReporteCiudadanoListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.rcService.obtenerRc(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( rcs => {
         this.rcArr = rcs.rcArr;
         this.nPagSig = rcs.nSig;

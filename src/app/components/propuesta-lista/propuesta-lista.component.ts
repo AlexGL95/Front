@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { PropuestaService } from 'src/app/services/propuesta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { PropuestaInterface } from "src/app/interfaces/propuesta.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-propuesta-lista',
@@ -36,7 +37,9 @@ export class PropuestaListaComponent implements OnInit {
   constructor(
     private propuestaService: PropuestaService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -66,6 +69,20 @@ export class PropuestaListaComponent implements OnInit {
     closeNav() {
       document.getElementById("mySidenav").style.width = "100px";
       document.getElementById("main").style.marginLeft = "100px";
+      this.bSidenavAct = false;
+    }
+
+    // Ajusta el ancho del navbar responsivo para mostrarse, ademas que opaca la pagina principal.
+    openNavResp() {
+      document.getElementById("mySidenav").style.width = "380px";
+      document.getElementById("botonNav").style.marginLeft = "270px";
+      this.bSidenavAct = true;
+    }
+
+    // Ajusta el ancho del navbar responsivo para ocultarse, ademas que aclara la pagina principal.
+    closeNavResp() {
+      document.getElementById("mySidenav").style.width = "140px";
+      document.getElementById("botonNav").style.marginLeft = "0px";
       this.bSidenavAct = false;
     }
 
@@ -110,6 +127,7 @@ export class PropuestaListaComponent implements OnInit {
     filtro( categoria: number, area: number ) {
       this.categoriaActual = categoria;
       this.areaActual = area;
+      this.paginaActual = 1;
       this.propuestaService.obtenerPropuesta(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( propuestas => {
         this.propuestasArr = propuestas.rcArr;
         this.nPagSig = propuestas.nSig;
@@ -129,7 +147,7 @@ export class PropuestaListaComponent implements OnInit {
               const file = new Blob([data], { type: 'application/pdf' });
               this.pdfActual = URL.createObjectURL(file);
               this.abrirModal(contenido)
-              //window.open(fileURL);
+              //window.open(this.pdfActual);
             }
           );
     }
@@ -138,4 +156,9 @@ export class PropuestaListaComponent implements OnInit {
       this.modalService.open( contenido, { centered: true, size: 'lg' } ).result;
     }
 
+    logout(){
+      this.auth.logOut();
+      this.router.navigate(['/Login']);
+      }
+    
 }

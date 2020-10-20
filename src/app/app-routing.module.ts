@@ -15,6 +15,9 @@ import { ReporteCiudadanoComponent } from './components/reporte-ciudadano/report
 import { ReporteCiudadanoAdmiComponent } from './components/reporte-ciudadano-admi/reporte-ciudadano-admi.component';
 import { ReporteCiudadanoCardComponent } from './components/reporte-ciudadano-card/reporte-ciudadano-card.component';
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
+import { AuthGuard } from './auth.guard';
+import { LogGuard } from './log.guard';
+import { SuccessComponent } from './components/success/success.component';
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
 
 const routes: Routes = [
@@ -34,6 +37,7 @@ const routes: Routes = [
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
   { path: 'Propuesta/ver/:folio', component: EvidenciaPComponent, data: { title: 'Evidencia Propuesta' }  },
+  { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
