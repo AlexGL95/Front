@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { QuejaService } from 'src/app/services/queja.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { QuejaInterface } from "src/app/interfaces/queja.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-queja-lista',
@@ -36,7 +37,9 @@ export class QuejaListaComponent implements OnInit {
   constructor(
     private quejaService: QuejaService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -69,6 +72,11 @@ export class QuejaListaComponent implements OnInit {
       this.bSidenavAct = false;
     }
 
+    logout(){
+      this.auth.logOut();
+      this.router.navigate(['/Login']);
+      }
+    
   /* Cuerpo de la pagina */
     // Pagina siguiente
     paginaSig() {

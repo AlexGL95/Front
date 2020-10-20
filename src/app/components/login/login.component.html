@@ -11,22 +11,39 @@
                 <label class="TxtC p-3">INICIO DE SESIÓN</label>
             </div>
             <div class="container p-5">
-                <label class="etqt">USUARIO *</label>
-                <input type="text" formControlName="usuario" class="form-control input border-bottom border-top-0 border-left-0 border-right-0" placeholder="ejemplo@ejemplo.com" maxlength="15" required #nombre/>
-                <label class="etqt mt-4">CONTRASEÑA *</label>
-                <div class="input-group">
-                    <input #x type="password" class="form-control border-top-0 border-left-0 border-right-0" formControlName="password" placeholder="**********" maxlength="15" id="password" required #pass />
-                    <div class="input-group-append c-pointer" (click)="x.type = x.type == 'password' ? 'text' : 'password'">
-                        <span class="input-group-text bg-white border-top-0 border-right-0">
-                            <fa-icon [icon]="faEyeSlash"></fa-icon>
-                        </span>
+
+                <form [formGroup]="LoginForm" action="" (ngSubmit)="singup(nombre.value, pass.value)">
+                    <label class="etqt">USUARIO *</label>
+                    <input type="text" formControlName="usuario" class="form-control input border-bottom border-top-0 border-left-0 border-right-0" placeholder="ejemplo@ejemplo.com" maxlength="15" required #nombre/>
+                    <div class="alerta" *ngIf="usuario.errors && (usuario.dirty || usuario.touched)">
+                        <div class="container-fluid" *ngIf="usuario.errors.required">
+                            * Correo requerido
+                        </div>
+                        <div class="container-fluid" *ngIf="usuario.errors.email">
+                            *Debe introduciruna direccion de correo valida
+                        </div>
                     </div>
-                </div>
-                <div class="form-check checkbox-rounded form-check mt-4 text-center">
-                    <input type="checkbox" class="form-check-input filled-in" id="Recordar">
-                    <label class="form-check-label" for="Recordar">Recordar</label>
-                </div>
-                <button class="btn btn-block BG TxtC2 mt-4">INGRESAR</button>
+                    <label class="etqt mt-4">CONTRASEÑA *</label>
+                    <div class="input-group">
+                        <input #x type="password" class="form-control border-top-0 border-left-0 border-right-0" formControlName="password" placeholder="**********" maxlength="15" id="password" required #pass />
+                        <div class="input-group-append c-pointer" (click)="x.type = x.type == 'password' ? 'text' : 'password'">
+                            <span class="input-group-text bg-white border-top-0 border-right-0">
+                                <fa-icon [icon]="faEyeSlash"></fa-icon>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="alerta" *ngIf="password.errors && (password.dirty || password.touched)">
+                        <div class="container-fluid" *ngIf="password.errors.required">
+                            * Contraseña requerida
+                        </div>
+                        <div class="container-fluid" *ngIf="password.errors.minlength">
+                            * Al menos 8 caracteres de longitud
+                        </div>
+                    </div>
+                    <button class="btn btn-block BG TxtC2 mt-4">INGRESAR</button>
+                </form>
+
+
             </div>
         </div>
     </div>

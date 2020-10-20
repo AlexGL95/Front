@@ -3,7 +3,8 @@ import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, fa
 import { RcService } from 'src/app/services/rc.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { RcInterface } from "src/app/interfaces/reporteC.interface";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-reporte-ciudadano-lista',
@@ -36,7 +37,9 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   constructor(
     private rcService: RcService,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private auth: AuthserviceService,
+    private router: Router,
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.categoriaActual = params['categoria'];
@@ -51,6 +54,10 @@ export class ReporteCiudadanoListaComponent implements OnInit {
       }
     } );
 }
+logout(){
+  this.auth.logOut();
+  this.router.navigate(['/Login']);
+  }
 
   ngOnInit(): void {}
 

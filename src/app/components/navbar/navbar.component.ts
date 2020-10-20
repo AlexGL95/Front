@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faGripLines, faEnvelopeOpenText, faLightbulb, faExclamationTriangle, faChartLine, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { AuthserviceService } from '../../services/authservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +21,10 @@ export class NavbarComponent implements OnInit {
   // Variables
   bSidenavAct = false;
 
-  constructor() {}
+  constructor(
+    private auth: AuthserviceService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
   }
@@ -36,6 +41,11 @@ export class NavbarComponent implements OnInit {
     document.getElementById("mySidenav").style.width = "100px";
     document.getElementById("main").style.marginLeft = "100px";
     this.bSidenavAct = false;
+  }
+
+  logout(){
+  this.auth.logOut();
+  this.router.navigate(['/Login']);
   }
 
 }
