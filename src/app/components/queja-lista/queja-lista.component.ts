@@ -33,6 +33,7 @@ export class QuejaListaComponent implements OnInit {
   paginaActual = 1;
   quejaActual: string;
   pdfActual;
+  etiqueta = '';
 
   constructor(
     private quejaService: QuejaService,
@@ -129,8 +130,8 @@ export class QuejaListaComponent implements OnInit {
     }
 
     // Pagina antigua
-    filtro( categoria: number, area: number ) {
-      this.categoriaActual = categoria;
+    filtro( categoria: number, area: number, etiqueta: string ) {
+      this.etiqueta = etiqueta;
       this.areaActual = area;
       this.paginaActual = 1;
       this.quejaService.obtenerQueja(this.categoriaActual,this.areaActual,this.paginaActual).subscribe( quejas => {
