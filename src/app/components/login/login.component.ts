@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { usuariomodel } from 'src/app/Models/Usuario.model';
 import { AuthserviceService } from '../../services/authservice.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthserviceService,
     private router: Router,
+    private toastr: ToastrService,
   ) {
     this.LoginForm = this.createFormGroup();
    }
@@ -36,13 +37,20 @@ export class LoginComponent implements OnInit {
           (resp) => {
             this.router.navigate(['/QuejaAdmi']);
           },
-          (err) => {}
+          (err) => {
+            this.modalerror();
+          }
           );
     } else {
 
     }
   }
 
+  modalerror(){
+    this.toastr.error('Usuario o contraseña incorrectos', 'Error al iniciar sesión', {
+      timeOut: 30000,
+    });
+  }
   createFormGroup(){
     return new FormGroup({
       usuario: new FormControl('', [Validators.required, Validators.email]),

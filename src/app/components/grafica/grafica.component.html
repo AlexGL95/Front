@@ -59,7 +59,7 @@
         </div>
         <div class="row titulo mt-5 mx-auto">
             <p class="col text-left" style="font-family: Arial; font-size: 30px; margin-top: 10px; margin-left: 100px;">Quejas</p>
-        <!-- Filtro -->
+            <!-- Filtro -->
             <div class="col text-right" style="display: inline-block;">
                 <label class="text-left" style="font-family: Arial; font-weight: bold; font-size: 10px; display: block;">FILTRAR</label>
                 <div class="dropdown border border-dark rounded">
@@ -91,23 +91,20 @@
         <div class="row mx-auto">
             <!-- Grafica -->
             <div class="col">
-                <google-chart #chart
-                    [type]="quejasChart.type"
-                    [data]="quejasChart.data"
-                    [options]="quejasChart.options"
-                    [width]="quejasChart.width"
-                    [height]="quejasChart.height"
-                    style="margin: auto;">
+                <google-chart #chart [type]="quejasChart.type" [data]="quejasChart.data" [options]="quejasChart.options" [width]="quejasChart.width" [height]="quejasChart.height" style="margin: auto;">
                 </google-chart>
             </div>
             <!-- Fechas -->
-            <div class="col mt-3 input-group text-right" style="height: 40px; position: relative; top: 30px;">
-                <label class="text-left" style="font-family: Arial; font-weight: bold; font-size: 10px; display: block; position: relative; top: -25px; left: 85px;">FECHA DE INICIO</label>
-                <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" (click)="fechaModQ(2)">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle();" type="button"></button>
+            <form>
+                <div class="col mt-3 input-group text-right" style="height: 40px; position: relative; top: 30px;">
+                    <label class="text-left" style="font-family: Arial; font-weight: bold; font-size: 10px; display: block; position: relative; top: -25px; left: 85px;">FECHA DE INICIO</label>
+                    <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker" (openChange)="fechaModQ(2)" #feci required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle();" type="button"></button>
+                    </div>
+                    <button class="btn" (click)=fechaModQ(feci.value)> Consultar periodo </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

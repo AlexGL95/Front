@@ -26,6 +26,8 @@ import { SuccessComponent } from './components/success/success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GraficaComponent } from './components/grafica/grafica.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,13 @@ import { GoogleChartsModule } from 'angular-google-charts';
     HttpClientModule,
     NgbModule,
     PdfViewerModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

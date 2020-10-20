@@ -65,8 +65,13 @@ export class GraficaComponent implements OnInit {
       } );
     }
 
-    fechaModQ( n: number ) {
+    fechaModQ( n: Date ) {
       console.log(n);
+      const QF = moment(n).format('MMM Do YY');
+      console.log(QF);
+      this.quejaService.verQuejaGraph(this.categoriaQ, this.areaQ, this.fecha1Q, QF).subscribe( data => {
+      this.quejasChart.data = data;
+    } );
     }
 
 }
