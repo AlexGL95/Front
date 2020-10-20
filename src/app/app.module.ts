@@ -23,6 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { SuccessComponent } from './components/success/success.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { SuccessComponent } from './components/success/success.component';
     PropuestaListaComponent,
     ReporteCiudadanoListaComponent,
     PdfViewComponent,
-    SuccessComponent
+    SuccessComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { SuccessComponent } from './components/success/success.component';
     FontAwesomeModule,
     HttpClientModule,
     NgbModule,
-    PdfViewerModule
+    PdfViewerModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,7 @@ import { ReporteCiudadanoAdmiComponent } from './components/reporte-ciudadano-ad
 import { ReporteCiudadanoCardComponent } from './components/reporte-ciudadano-card/reporte-ciudadano-card.component';
 import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
 import { SuccessComponent } from './components/success/success.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
 
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }  },
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
+  { path: 'Grafica', component: GraficaComponent, data: { title: 'Reportes' }  },
   { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
