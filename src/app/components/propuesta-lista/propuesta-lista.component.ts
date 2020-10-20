@@ -33,6 +33,7 @@ export class PropuestaListaComponent implements OnInit {
   paginaActual = 1;
   propuestaActual: string;
   pdfActual;
+  etiqueta = '';
 
   constructor(
     private propuestaService: PropuestaService,
@@ -124,7 +125,8 @@ export class PropuestaListaComponent implements OnInit {
     }
 
     // Pagina antigua
-    filtro( categoria: number, area: number ) {
+    filtro( categoria: number, area: number, etiqueta: string ) {
+      this.etiqueta = etiqueta;
       this.categoriaActual = categoria;
       this.areaActual = area;
       this.paginaActual = 1;
