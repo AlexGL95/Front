@@ -26,4 +26,8 @@ export class PropuestaService {
       return this.http.get<any>(this.URL_PROPUESTAS + `/${id}`, options);
   }
 
+  verPropuestaGraph( categoria: number, area: number, fechaIni: string, fechaFin: string ) {
+    return this.http.get<[]>(this.URL_PROPUESTAS + `/graph/${categoria}/${area}/` + fechaIni + '/' + fechaFin);
+  }
+
 }
