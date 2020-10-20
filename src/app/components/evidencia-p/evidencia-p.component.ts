@@ -20,9 +20,9 @@ export class EvidenciaPComponent implements OnInit {
     this.evidenciaService.verEvidencia( evi )
       .subscribe(
         data => {
-          const file = new Blob([data.body], { type: 'application/pdf' });
+          const file = new Blob([data]);
           console.log(data, file);
-          this.eviActual = window.URL.createObjectURL(file);
+          this.eviActual = URL.createObjectURL(file);
           console.log(this.eviActual);
           window.open(this.eviActual);
         }
