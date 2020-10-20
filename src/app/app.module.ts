@@ -49,7 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     PropuestaListaComponent,
     ReporteCiudadanoListaComponent,
     PdfViewComponent,
-    GraficaComponent
+    GraficaComponent,
     EvidenciaPComponent
   ],
   imports: [
