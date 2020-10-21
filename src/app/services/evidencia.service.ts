@@ -19,4 +19,27 @@ export class EvidenciaService {
     };
     return this.http.get<any>(`${this.URIpropuesta}/verP/${folio}`, options);
   }
+
+  verEvidenciaQ( folio: string ) {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const options = {
+      headers: httpHeaders,
+      responseType: 'blob' as 'json'
+    };
+    return this.http.get<any>(`${this.URIpropuesta}/verQ/${folio}`, options);
+  }
+
+  verEvidenciaRC( folio: string ) {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const options = {
+      headers: httpHeaders,
+      responseType: 'blob' as 'json'
+    };
+    return this.http.get<any>(`${this.URIpropuesta}/verRC/${folio}`, options);
+  }
+
 }

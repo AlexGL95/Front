@@ -94,7 +94,7 @@ export class ReporteCiudadanoComponent implements OnInit {
       await this.reporteService.adjuntarArchivosRC(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.reporteService.guardarReporte(this.crearRC).subscribe(prop => {
         console.log(prop);
-        this.router.navigate([`Success/:${prop}`])
+        this.router.navigate([`Success/${prop}`])
       }, err => 
       console.log(err));
     } else{

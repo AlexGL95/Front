@@ -94,7 +94,7 @@ export class QuejaComponent implements OnInit {
       await this.quejaService.adjuntarArchivosQ(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.quejaService.guardarQueja(this.crearQ).subscribe(prop => {
         console.log(prop);
-        this.router.navigate([`Success/:${prop}`])
+        this.router.navigate([`Success/${prop}`])
       }, err => 
       console.log(err));
     } else{

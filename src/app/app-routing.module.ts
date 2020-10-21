@@ -39,6 +39,8 @@ const routes: Routes = [
   { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }, canActivate: [AuthGuard]  },
   { path: 'Propuesta/ver/:folio', component: EvidenciaPComponent, data: { title: 'Evidencia' }},
+  { path: 'Queja/ver/:folio', component: EvidenciaQComponent, data: { title: 'Evidencia' }},
+  { path: 'Reporte/ver/:folio', component: EvidenciaRComponent, data: { title: 'Evidencia' }},
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
@@ -48,3 +50,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
+import { EvidenciaQComponent } from './components/evidencia-q/evidencia-q.component';import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.component';
+
