@@ -9,7 +9,7 @@ export class EvidenciaService {
 
   constructor(private http: HttpClient) { }
 
-  verEvidencia( folio: string ) {
+  verEvidenciaP( folio: string ) {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
@@ -17,6 +17,6 @@ export class EvidenciaService {
       headers: httpHeaders,
       responseType: 'blob' as 'json'
     };
-    return this.http.get<any>(`${this.URIpropuesta}/ver/${folio}`, options);
+    return this.http.get<any>(`${this.URIpropuesta}/verP/${folio}`, options);
   }
 }
