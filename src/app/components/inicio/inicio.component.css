@@ -11,11 +11,24 @@
     margin-left: 4%;
 }
 
-.sinpadding {
-    padding: 0;
+.TxtC:hover {
+    color: white;
 }
 
 a.cartaVinculo,
 a.cartaVinculo:hover {
     color: inherit;
+}
+
+.imgP {
+    display: flexbox;
+    padding: 0;
+}
+
+@media only screen and (max-width: 992px) {
+
+    .imgP {
+        display: none;
+    }
+
 }
