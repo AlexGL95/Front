@@ -17,7 +17,7 @@ export class EvidenciaPComponent implements OnInit {
 
   ngOnInit(): void {
     let evi = this.route.snapshot.paramMap.get('folio');
-    this.evidenciaService.verEvidencia( evi )
+    this.evidenciaService.verEvidenciaP( evi )
       .subscribe(
         data => {
           const file = new Blob([data]);

@@ -23,21 +23,22 @@ import { GraficaComponent } from './components/grafica/grafica.component';
 const routes: Routes = [
   { path: 'Inicio', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } },
   { path: 'Login', component: LoginComponent, data: { title: 'Login' }, canActivate: [LogGuard] },
-  { path: 'Propuesta/:id/:area', component: PropuestaComponent, data: { title: 'Propuesta' }  },
+  { path: 'Propuesta/:id/:id2/:area', component: PropuestaComponent, data: { title: 'Propuesta' }  },
   { path: 'PropuestaAdmi', component: PropuestaAdmiComponent, data: { title: 'Propuesta Administrador' }, canActivate: [AuthGuard]  },
   { path: 'PropuestaCard', component: PropuestaCardComponent, data: { title: 'Propuesta Selector' }  },
   { path: 'PropuestaLista/:categoria', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }, canActivate: [AuthGuard]  },
-  { path: 'Queja/:id/:area', component: QuejaComponent, data: { title: 'Queja' }  },
+  { path: 'Queja/:id/:id2/:area', component: QuejaComponent, data: { title: 'Queja' }  },
   { path: 'QuejaAdmi', component: QuejaAdmiComponent, data: { title: 'Queja Administrador' }, canActivate: [AuthGuard]},
   { path: 'QuejaCard', component: QuejaCardComponent, data: { title: 'Queja Selector' }  },
   { path: 'QuejaLista/:categoria', component: QuejaListaComponent, data: { title: 'Queja Lista' }, canActivate: [AuthGuard]  },
-  { path: 'ReporteCi/:id/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
+  { path: 'ReporteCi/:id/:id2/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
   { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }, canActivate: [AuthGuard]},
   { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
   { path: 'Grafica', component: GraficaComponent, data: { title: 'Reportes' }  },
   { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
   { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }, canActivate: [AuthGuard]  },
+  { path: 'Propuesta/ver/:folio', component: EvidenciaPComponent, data: { title: 'Evidencia' }},
   { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
