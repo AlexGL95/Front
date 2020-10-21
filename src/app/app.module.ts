@@ -29,6 +29,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EvidenciaQComponent } from './components/evidencia-q/evidencia-q.component';
+import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PdfViewComponent,
     GraficaComponent,
     EvidenciaPComponent,
-    SuccessComponent
+    SuccessComponent,
+    EvidenciaQComponent,
+    EvidenciaRComponent
   ],
   imports: [
     BrowserModule,

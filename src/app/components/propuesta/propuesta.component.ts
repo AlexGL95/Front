@@ -94,7 +94,7 @@ export class PropuestaComponent implements OnInit {
       await this.propuestaService.adjuntarArchivosP(this.file).subscribe(res => console.log(res), err => console.log(err));
       await this.propuestaService.guardarPropuesta(this.crearP).subscribe(prop => {
         console.log(prop);
-        this.router.navigate([`Success/:${prop}`])
+        this.router.navigate([`Success/${prop}`])
       }, err => 
       console.log(err));
       
