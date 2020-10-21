@@ -24,11 +24,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
 import { SuccessComponent } from './components/success/success.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GraficaComponent } from './components/grafica/grafica.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
