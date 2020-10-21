@@ -4,7 +4,7 @@
     </div>
 </nav>
 <div class="container-fluid">
-    
+
     <div class="row">
         <div class="col container1">
             <div class="col">
@@ -14,7 +14,7 @@
                     </a>
                     <h2 align="center" class="titulo container2">REPORTE CIUDADANO</h2>
                 </div>
-    
+
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -32,11 +32,11 @@
                                     <label class="custom-control-label" for="anonimo">ANONIMO</label>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row mt-3">
                     <div class="col-md-5 mt-3">
                         <div class="formControl">
@@ -58,18 +58,18 @@
                                 </div>
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
-        
+
                 <div class="row mt-4">
                     <div class="col-md-5 mt-4">
                         <div class="formControl">
-                            
+
                             <div class="input-group mb-3 form-group">
                                 <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="5" placeholder="Ej. 58280'" [(ngModel)]="codigo" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>
+                                    <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>
                                 </div>
                             </div>
 
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col mt-4">
                         <div class="formControl">
-                           
+
                             <div class="dropdown">
                                 <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown">
                                     {{otromensajeCol}}
@@ -103,7 +103,7 @@
                                             <button type="button" class="btn btn-block" (click)="selectCols(i, col)">{{col}}</button>
                                         </li>
                                     </div>
-                                    
+
                                 </ul>
                             </div>
 
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row mt-4">
                     <div class="col">
                         <div class="form-group">
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row mt-4">
                     <div class="col">
                         <div class="form-group">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row">
 
                     <div class="col mt-4">
@@ -154,18 +154,18 @@
                             <label for="name" class="positiontop2 text2 titulo">
                                 ANEXAR DOCUMENTO:
                             </label>
-                            
+
                             <div class="form-group mb-3">
                                 <input type="text" class="form-control" id="evidencia" disabled>
                                 <input type="file" class="d-none file1" (change)="onPDFSelect($event)" #PDFInput>
                                 <div class="input-group-append">
-                                <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">ADJUNTAR</button>
+                                    <button class="btn btn-outline-secondary file1" type="button" (click)="PDFInput.click()">ADJUNTAR</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row mt-3">
                     <div class="col">
                         <button class="btn btn-outline-secondary botontop3" type="button" (click)="enviar()">ENVIAR</button>
@@ -173,9 +173,11 @@
                 </div>
             </div>
         </div>
-    
-        <div class="imag">
-            <img src="../../../assets/img/propuest.png" class="img-fluid">
+
+        <div class="col imag">
+            <div class=" b2g">
+
+            </div>
         </div>
     </div>
 
