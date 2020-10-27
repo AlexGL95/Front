@@ -33,7 +33,7 @@ export class ReporteCiudadanoListaComponent implements OnInit {
   paginaActual = 1;
   rcActual: string;
   pdfActual;
-  etiqueta = '';
+  etiqueta = 'Sub-Categoría';
 
   constructor(
     private rcService: RcService,

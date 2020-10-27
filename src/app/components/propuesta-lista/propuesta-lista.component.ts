@@ -33,7 +33,7 @@ export class PropuestaListaComponent implements OnInit {
   paginaActual = 1;
   propuestaActual: string;
   pdfActual;
-  etiqueta = '';
+  etiqueta = 'Sub-Categoría';
 
   constructor(
     private propuestaService: PropuestaService,

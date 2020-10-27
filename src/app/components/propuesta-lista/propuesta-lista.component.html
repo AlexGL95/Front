@@ -87,10 +87,8 @@
             <div class="col text-right" style="display: inline-block;">
                 <label class="text-left" style="font-family: Arial; font-weight: bold; font-size: 10px; display: block;">FILTRAR</label>
                 <div class="dropdown border border-dark rounded">
-                    <button id="selector" class="btn btn-block dropdown-toggle text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#CCD1D1" *ngIf="(etiqueta=='')">
-                        Sub-categoria
-                    </button>
-                    <button id="selector" class="btn btn-block dropdown-toggle text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black" *ngIf="!(etiqueta=='')">
+            
+                    <button id="selector" class="btn btn-block dropdown-toggle text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black">
                         {{etiqueta}}
                     </button>
                     <div class="dropdown-menu" style="width: 100%;">

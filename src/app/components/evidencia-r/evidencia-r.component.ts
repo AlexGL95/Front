@@ -25,6 +25,7 @@ export class EvidenciaRComponent implements OnInit {
           this.eviActual = URL.createObjectURL(file);
           console.log(this.eviActual);
           window.open(this.eviActual);
+          window.close();
         }
       );
   }
