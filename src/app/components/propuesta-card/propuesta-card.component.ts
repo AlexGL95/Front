@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faCertificate } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-propuesta-card',
   templateUrl: './propuesta-card.component.html',
@@ -7,6 +7,8 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 })
 export class PropuestaCardComponent implements OnInit {
   faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
+  faCertificate = faCertificate;
   constructor() { }
 
   ngOnInit(): void {

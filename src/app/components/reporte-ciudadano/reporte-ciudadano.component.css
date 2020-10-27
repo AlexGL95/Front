@@ -17,6 +17,12 @@
     background: white;
 }
 
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
 .positiontop4 {
     position: relative;
     top: -50px;
@@ -137,18 +143,18 @@
 .b2g {
     /* The image used */
     position: fixed;
-    padding-top: 3%;
+    top: 0px;
+    z-index: -3;
     background-image: url("../../../assets/img/propuest.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 50% 100%;
     background-attachment: fixed;
-    background-color: darkcyan;
     object-fit: cover;
-    width: 50%;
+    width: 120%;
 }
 
 @media only screen and (min-width: 1200px) {

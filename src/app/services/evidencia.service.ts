@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class EvidenciaService {
 
   URIpropuesta = 'http://localhost:3000/propuesta';
+  URIqueja = 'http://localhost:3000/queja';
+  URIreporte = 'http://localhost:3000/rc';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +30,7 @@ export class EvidenciaService {
       headers: httpHeaders,
       responseType: 'blob' as 'json'
     };
-    return this.http.get<any>(`${this.URIpropuesta}/verQ/${folio}`, options);
+    return this.http.get<any>(`${this.URIqueja}/verQ/${folio}`, options);
   }
 
   verEvidenciaRC( folio: string ) {
@@ -39,7 +41,7 @@ export class EvidenciaService {
       headers: httpHeaders,
       responseType: 'blob' as 'json'
     };
-    return this.http.get<any>(`${this.URIpropuesta}/verRC/${folio}`, options);
+    return this.http.get<any>(`${this.URIreporte}/verRC/${folio}`, options);
   }
 
 }

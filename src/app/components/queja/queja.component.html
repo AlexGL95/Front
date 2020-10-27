@@ -98,8 +98,8 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown">
                                     {{otromensajeCol}}
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <div data-spy="scroll" class="scrollspy-example text-center">
+                                <ul class="dropdown-menu form-control">
+                                    <div *ngIf="exito" data-spy="scroll" class="scrollspy-example text-center form-control">
                                         <li *ngFor="let col of cols; index as i">
                                             <button type="button" class="btn btn-block" (click)="selectCols(i, col)">{{col}}</button>
                                         </li>
@@ -176,7 +176,9 @@
         </div>
     
         <div class="imag">
-            <img src="../../../assets/img/Quejas.png" class="imgcard">
+            <div class="b2g">
+
+            </div>
         </div>
     </div>
 

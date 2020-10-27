@@ -12,7 +12,7 @@
                     <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
                         Regresar
                     </a>
-                    <h2 align="center" class="titulo container2">REPORTE CIUDADANO</h2>
+                    <h2 class="text-center titulo container2">REPORTE CIUDADANO</h2>
                 </div>
 
                 <div class="row">
@@ -97,8 +97,8 @@
                                 <button class="btn btn-outline-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown">
                                     {{otromensajeCol}}
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <div data-spy="scroll" class="scrollspy-example text-center">
+                                <ul class="dropdown-menu form-control">
+                                    <div *ngIf="exito" data-spy="scroll" class="scrollspy-example text-center form-control">
                                         <li *ngFor="let col of cols; index as i">
                                             <button type="button" class="btn btn-block" (click)="selectCols(i, col)">{{col}}</button>
                                         </li>
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div class="col imag">
+        <div class="imag">
             <div class=" b2g">
 
             </div>

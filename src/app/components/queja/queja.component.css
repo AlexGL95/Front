@@ -148,3 +148,20 @@
         margin-left: 1%;
     }
 }
+
+.b2g {
+    /* The image used */
+    position: fixed;
+    top: 0px;
+    z-index: -3;
+    background-image: url("../../../assets/img/Quejas.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-attachment: fixed;
+    object-fit: cover;
+    width: 120%;
+}

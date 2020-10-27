@@ -2,6 +2,7 @@
 
 .BG {
     background-color: #34051C;
+    z-index: 3;
 }
 
 .TxtC {
@@ -43,7 +44,7 @@
 }
 
 .lin {
-    text-decoration: none;
+    
     color: black;
 }
 
@@ -61,7 +62,7 @@
     height: auto;
 }
 
-@media only screen and (min-width: 880px) {
+@media only screen and (min-width: 990px) {
     /* For desktop: */
     .cardspace {
         max-width: 50%;
@@ -86,17 +87,16 @@ body {
 .b2g {
     /* The image used */
     position: fixed;
-    padding-top: 3%;
+    top: 0px;
+    z-index: 0;
     background-image: url("../../../assets/img/Quejas.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 50% 100%;
     background-attachment: fixed;
-    background-color: darkcyan;
-    padding-bottom: 15%;
     object-fit: cover;
-    width: 100%;
+    width: 120%;
 }

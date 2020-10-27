@@ -14,7 +14,7 @@
 
                 <form [formGroup]="LoginForm" action="" (ngSubmit)="singup(nombre.value, pass.value)">
                     <label class="etqt">USUARIO *</label>
-                    <input type="text" formControlName="usuario" class="form-control input border-bottom border-top-0 border-left-0 border-right-0" placeholder="ejemplo@ejemplo.com" maxlength="15" required #nombre/>
+                    <input type="text" formControlName="usuario" class="form-control input border-bottom border-top-0 border-left-0 border-right-0" placeholder="ejemplo@ejemplo.com" maxlength="30" required #nombre/>
                     <div class="alerta" *ngIf="usuario.errors && (usuario.dirty || usuario.touched)">
                         <div class="container-fluid" *ngIf="usuario.errors.required">
                             * Correo requerido

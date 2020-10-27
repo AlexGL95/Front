@@ -33,7 +33,7 @@ export class QuejaListaComponent implements OnInit {
   paginaActual = 1;
   quejaActual: string;
   pdfActual;
-  etiqueta = '';
+  etiqueta = 'Sub-Categoría';
 
   constructor(
     private quejaService: QuejaService,
