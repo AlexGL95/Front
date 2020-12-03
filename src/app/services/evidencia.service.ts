@@ -4,10 +4,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class EvidenciaService {
-
-  URIpropuesta = 'http://localhost:3000/propuesta';
-  URIqueja = 'http://localhost:3000/queja';
-  URIreporte = 'http://localhost:3000/rc';
+  URIpropuesta = 'http://18.222.78.194:3001/propuesta';
+  URIqueja = 'http://18.222.78.194:3001/queja';
+  URIreporte = 'http://18.222.78.194:3001/rc';
 
   constructor(private http: HttpClient) { }
 

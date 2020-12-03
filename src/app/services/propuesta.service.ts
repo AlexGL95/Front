@@ -9,8 +9,8 @@ import { PropuestaInterface } from '../interfaces/propuesta.interface';
 })
 export class PropuestaService {
 
-  URIpropuesta = 'http://localhost:3000/propuesta';
-  URIcategoria = 'http://localhost:3000/categoria';
+  URIpropuesta = 'http://18.222.78.194:3001/propuesta';
+  URIcategoria = 'http://18.222.78.194:3001/categoria';
   URIsempomex = 'https://api-sepomex.hckdrk.mx/query/get_colonia_por_cp'
 
   constructor(private http: HttpClient) { }

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthserviceService {
-  private url = 'http://localhost:3000';
+  private url = 'http://18.222.78.194:3001';
   usertoken: string;
   correo: string;
 
