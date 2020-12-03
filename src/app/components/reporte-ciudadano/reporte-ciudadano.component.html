@@ -9,7 +9,7 @@
         <div class="col container1">
             <div class="col">
                 <div class="form-group">
-                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/Inicio']" class="regreso">
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> <a [routerLink]="['/ReporteCiCard']" class="regreso">
                         Regresar
                     </a>
                     <h2 class="text-center titulo container2">REPORTE CIUDADANO</h2>
@@ -62,11 +62,11 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-md-5 mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-5 mt-3">
                         <div class="formControl">
 
-                            <div class="input-group mb-3 form-group">
+                            <div class="input-group">
                                 <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" maxlength="5" placeholder="Ej. 58280'" [(ngModel)]="codigo" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary botontop" type="button" (click)="encontrarColonias()"><label class="text1">CONSULTAR</label></button>

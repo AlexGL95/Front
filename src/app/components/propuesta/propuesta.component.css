@@ -61,6 +61,11 @@
     font: Arial;
 }
 
+.postal {
+    position: relative;
+    top: 2px;
+}
+
 .text1{
     position: relative;
     font-size: 50%;
