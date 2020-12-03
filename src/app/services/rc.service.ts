@@ -9,7 +9,7 @@ export class RcService {
 
   constructor( private http: HttpClient ) {}
 
-  URL_RC = 'http://localhost:3000/rc';
+  URL_RC = 'http://18.222.78.194:3001/rc';
 
   obtenerRc( categoria: number, area: number, pagina: number) {
     return this.http.get<{rcArr: RcInterface[], nSig: number}>(this.URL_RC + `/${categoria}/${area}/${pagina}`);

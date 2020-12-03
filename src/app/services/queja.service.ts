@@ -10,8 +10,8 @@ import { QuejaInterface } from '../interfaces/queja.interface';
 })
 export class QuejaService {
 
-  URIqueja = 'http://localhost:3000/queja';
-  URIcategoria = 'http://localhost:3000/categoria';
+  URIqueja = 'http://18.222.78.194:3001/queja';
+  URIcategoria = 'http://18.222.78.194:3001/categoria';
   URIsempomex = 'https://api-sepomex.hckdrk.mx/query/get_colonia_por_cp'
 
   constructor(private http: HttpClient) { }
