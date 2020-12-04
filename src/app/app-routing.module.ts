@@ -21,34 +21,28 @@ import { SuccessComponent } from './components/success/success.component';
 import { GraficaComponent } from './components/grafica/grafica.component';
 
 const routes: Routes = [
+  { path: 'navbar', loadChildren: () => import( './components/navbar/navbar.module' ).then( m => m.NavbarModule ), canActivate: [AuthGuard] },
   { path: 'Inicio', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } },
   { path: 'Login', component: LoginComponent, data: { title: 'Login' }, canActivate: [LogGuard] },
-  { path: 'Propuesta/:id/:id2/:area', component: PropuestaComponent, data: { title: 'Propuesta' }  },
-  { path: 'PropuestaAdmi', component: PropuestaAdmiComponent, data: { title: 'Propuesta Administrador' }, canActivate: [AuthGuard]  },
-  { path: 'PropuestaCard', component: PropuestaCardComponent, data: { title: 'Propuesta Selector' }  },
-  { path: 'PropuestaLista/:categoria', component: PropuestaListaComponent, data: { title: 'Propuesta Lista' }, canActivate: [AuthGuard]  },
-  { path: 'Queja/:id/:id2/:area', component: QuejaComponent, data: { title: 'Queja' }  },
-  { path: 'QuejaAdmi', component: QuejaAdmiComponent, data: { title: 'Queja Administrador' }, canActivate: [AuthGuard]},
-  { path: 'QuejaCard', component: QuejaCardComponent, data: { title: 'Queja Selector' }  },
-  { path: 'QuejaLista/:categoria', component: QuejaListaComponent, data: { title: 'Queja Lista' }, canActivate: [AuthGuard]  },
-  { path: 'ReporteCi/:id/:id2/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' }  },
-  { path: 'ReporteCiAdmi', component: ReporteCiudadanoAdmiComponent, data: { title: 'Reporte Ciudadano Administrador' }, canActivate: [AuthGuard]},
-  { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' }  },
-  { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }  },
-  { path: 'Grafica', component: GraficaComponent, data: { title: 'Reportes' }  },
-  { path: 'Success/:folio', component: SuccessComponent, data: { title: 'Exito' }  },
-  { path: 'ReporteCiLista/:categoria', component: ReporteCiudadanoListaComponent, data: { title: 'Reporte Ciudadano Lista' }, canActivate: [AuthGuard]  },
-  { path: 'Propuesta/ver/:folio', component: EvidenciaPComponent, data: { title: 'Evidencia' }},
-  { path: 'Queja/ver/:folio', component: EvidenciaQComponent, data: { title: 'Evidencia' }},
-  { path: 'Reporte/ver/:folio', component: EvidenciaRComponent, data: { title: 'Evidencia' }},
-  { path: '**', component:  InicioComponent, data: { title: 'PiiñaTeEscucha' } }
+  { path: 'ReporteCiCard', component: ReporteCiudadanoCardComponent, data: { title: 'Reporte Ciudadano Selector' } },
+  { path: 'PropuestaCard', component: PropuestaCardComponent, data: { title: 'Propuesta Selector' } },
+  { path: 'QuejaCard', component: QuejaCardComponent, data: { title: 'Queja Selector' } },
+  { path: 'Queja/:id/:id2/:area', component: QuejaComponent, data: { title: 'Queja' } },
+  { path: 'ReporteCi/:id/:id2/:area', component: ReporteCiudadanoComponent, data: { title: 'Reporte Ciudadano' } },
+  { path: 'Propuesta/:id/:id2/:area', component: PropuestaComponent, data: { title: 'Propuesta' } },
+
+  { path: 'Reporte/ver/:folio', component: EvidenciaRComponent, data: { title: 'Evidencia' }, canActivate: [AuthGuard] },
+  { path: 'Propuesta/ver/:folio', component: EvidenciaPComponent, data: { title: 'Evidencia' }, canActivate: [AuthGuard] },
+  { path: 'Queja/ver/:folio', component: EvidenciaQComponent, data: { title: 'Evidencia' }, canActivate: [AuthGuard] },
+  { path: '**', component: InicioComponent, data: { title: 'PiiñaTeEscucha' } }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
+@NgModule( {
+  imports: [RouterModule.forRoot( routes )],
   exports: [RouterModule]
-})
+} )
 export class AppRoutingModule { }
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
-import { EvidenciaQComponent } from './components/evidencia-q/evidencia-q.component';import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.component';
+import { EvidenciaQComponent } from './components/evidencia-q/evidencia-q.component'; import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.component';
+import { NavbarModule } from './components/navbar/navbar.module';
 

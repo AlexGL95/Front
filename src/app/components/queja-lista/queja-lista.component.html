@@ -1,196 +1,227 @@
-<head>
-    <meta name="viewport" content="width=960, initial-scale=0.6, maximum-scale=1, minimum-scale=0.5 user-scalable=yes">
-</head>
-
-<div id="mySidenav" class="sidenav">
-    <a id="logoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="bSidenavAct">LOGO</a>
-    <a id="fakelogoSidenav" class="border-bottom mx-3 text-center" href="/QuejaAdmi" *ngIf="!bSidenavAct"><br></a>
-    <a class="row-cols-2 mx-2 my-3 rounded" href="/QuejaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="35" height="35">
-        </div>
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_buzon_quejas.svg" alt="Quejas" width="70" height="70">
-        </div>
-        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Quejas</div>
-    </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" href="/PropuestaAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style=" font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="35" height="35">
-        </div>
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style=" font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_propuestas.svg" alt="Quejas" width="70" height="70">
-        </div>
-        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Propuestas</div>
-    </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" href="/ReporteCiAdmi">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="35" height="35">
-        </div>
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_reporte-ciudadano.svg" alt="Quejas" width="70" height="70">
-        </div>
-        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes<br>Ciudadanos</div>
-    </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" style="height: 60px;" href="/Grafica">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center" style="display: inline-block; font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="35" height="35">
-        </div>
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_estadisticos.svg" alt="Quejas" width="70" height="70">
-        </div>
-        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Reportes</div>
-    </a>
-    <a class="row-cols-2 mx-2 my-3 rounded" (click)="logout()">
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoN" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="35" height="35">
-        </div>
-        <div class="col-3 align-middle ml-3 px-2 py-2 text-center iconoR" style="font-size: 30px;">
-            <img src="../../../assets/img/icons/icono_logout.svg" alt="Quejas" width="70" height="70">
-        </div>
-        <div class="col-auto align-middle" style="display: inline-block" *ngIf="bSidenavAct">Cerrar Sesion</div>
-    </a>
+<div class="row mt-5 mb-3">
+        <p class="col text-center"
+           style="font-family: Arial; font-weight: bold; font-size: 30px;">HISTORIAL QUEJAS</p>
 </div>
-
-<!-- Cuerpo de la pagina -->
-<div id="main">
-    <!-- Encabezado a la derecha -->
-    <div id="botonNav" class="container-fluid border-bottom">
-        <!-- Boton mostrar no responsivo -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 normal" (click)="openNav()" *ngIf="!bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton ocultar no responsivo -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 normal" (click)="closeNav()" *ngIf="bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton mostrar responsivo -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 responsivo" (click)="openNavResp()" *ngIf="!bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton ocultar responsivo -->
-        <button type="button" class="btn btn-ligth shadow my-3 ml-3 responsivo" (click)="closeNavResp()" *ngIf="bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-    </div>
-
-    <!-- Contenido de la pagina -->
-    <div class="container-fluid my-3" style="padding-left: 5%; padding-right: 5%;">
-        <!-- Titulo -->
-        <div class="row mt-5 mb-3">
-            <p class="col text-center" style="font-family: Arial; font-weight: bold; font-size: 30px;">HISTORIAL QUEJAS</p>
-        </div>
-        <!-- Filtro -->
-        <div class="row-cols-3 mb-3">
-            <div class="col" style="display: inline-block;"></div>
-            <div class="col" style="display: inline-block;"></div>
-            <div class="col text-right" style="display: inline-block;">
-                <label class="text-left" style="font-family: Arial; font-weight: bold; font-size: 10px; display: block;">FILTRAR</label>
+<!-- Filtro -->
+<div class="row-cols-3 mb-3">
+        <div class="col"
+             style="display: inline-block;"></div>
+        <div class="col"
+             style="display: inline-block;"></div>
+        <div class="col text-right"
+             style="display: inline-block;">
+                <label class="text-left"
+                       style="font-family: Arial; font-weight: bold; font-size: 10px; display: block;">FILTRAR</label>
                 <div class="dropdown border border-dark rounded">
-                    <button id="selector" class="btn btn-block dropdown-toggle text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black" >
-                        {{etiqueta}}
-                    </button>
-                    <div class="dropdown-menu" style="width: 100%;">
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(1,0,'Servicios')" *ngIf="categoriaActual == 1">Servicios</button>
-                        <div class="dropdown-divider" *ngIf="categoriaActual == 1"></div>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,1,'Drenaje')" *ngIf="categoriaActual == 1">Drenaje</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,2,'Alumbrado Público')" *ngIf="categoriaActual == 1">Alumbrado Público</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,3,'Sanidad')" *ngIf="categoriaActual == 1">Sanidad</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,4,'Dependencias Públicas')" *ngIf="categoriaActual == 1">Dependencias Públicas</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(1,5,'Postes')" *ngIf="categoriaActual == 1">Postes</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-4" type="button" style="font-weight: bold;" (click)="filtro(2,0,'Vialidad')" *ngIf="categoriaActual == 2">Vialidad</button>
-                        <div class="dropdown-divider" *ngIf="categoriaActual == 2"></div>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,6,'Vía Dañada')" *ngIf="categoriaActual == 2">Vía Dañada</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,7,'Vía Obstruida')" *ngIf="categoriaActual == 2">Vía Obstruida</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,8,'Semáforo')" *ngIf="categoriaActual == 2">Semáforo</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,9,'Tráfico')" *ngIf="categoriaActual == 2">Tráfico</button>
-                        <button id="selectorBtn" class="btn btn-block dropdown-item text-left pl-5" type="button" (click)="filtro(2,10,'Vía Peatonal')" *ngIf="categoriaActual == 2">Vía Peatonal</button>
-                    </div>
+                        <button id="selector"
+                                class="btn btn-block dropdown-toggle text-right"
+                                type="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                style="color:black">
+                                {{etiqueta}}
+                        </button>
+                        <div class="dropdown-menu"
+                             style="width: 100%;">
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-4"
+                                        type="button"
+                                        style="font-weight: bold;"
+                                        (click)="filtro(1,0,'Servicios')"
+                                        *ngIf="categoriaActual == 1">Servicios</button>
+                                <div class="dropdown-divider"
+                                     *ngIf="categoriaActual == 1"></div>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(1,1,'Drenaje')"
+                                        *ngIf="categoriaActual == 1">Drenaje</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(1,2,'Alumbrado Público')"
+                                        *ngIf="categoriaActual == 1">Alumbrado Público</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(1,3,'Sanidad')"
+                                        *ngIf="categoriaActual == 1">Sanidad</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(1,4,'Dependencias Públicas')"
+                                        *ngIf="categoriaActual == 1">Dependencias Públicas</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(1,5,'Postes')"
+                                        *ngIf="categoriaActual == 1">Postes</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-4"
+                                        type="button"
+                                        style="font-weight: bold;"
+                                        (click)="filtro(2,0,'Vialidad')"
+                                        *ngIf="categoriaActual == 2">Vialidad</button>
+                                <div class="dropdown-divider"
+                                     *ngIf="categoriaActual == 2"></div>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(2,6,'Vía Dañada')"
+                                        *ngIf="categoriaActual == 2">Vía Dañada</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(2,7,'Vía Obstruida')"
+                                        *ngIf="categoriaActual == 2">Vía Obstruida</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(2,8,'Semáforo')"
+                                        *ngIf="categoriaActual == 2">Semáforo</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(2,9,'Tráfico')"
+                                        *ngIf="categoriaActual == 2">Tráfico</button>
+                                <button id="selectorBtn"
+                                        class="btn btn-block dropdown-item text-left pl-5"
+                                        type="button"
+                                        (click)="filtro(2,10,'Vía Peatonal')"
+                                        *ngIf="categoriaActual == 2">Vía Peatonal</button>
+                        </div>
                 </div>
-            </div>
         </div>
-        <!-- Alerta de no coincidencias -->
-        <div class="alert alert-warning" style="width: 100%;" role="alert" *ngIf="bSinCoincidencias">
-            No se encontraron coincidencias.
-        </div>
-        <!-- Lista de quejas-->
-        <div class="row mb- 3 mr-2" style="width: 100%;" *ngIf="!bSinCoincidencias">
-            <!-- Tabla de quejas -->
-            <table class="mt-3" style="width:100%">
-                <tr class="border" style="background-color: #5e1932; color: white;">
-                    <!-- Columna de folio -->
-                    <th class="cuadroEncabezado text-center">FOLIO</th>
-                    <!-- Columna de nombre -->
-                    <th class="cuadroEncabezado text-center">NOMBRE</th>
-                    <!-- Columna de telefono -->
-                    <th class="cuadroEncabezado text-center">TELÉFONO</th>
-                    <!-- Columna de correo -->
-                    <th class="cuadroEncabezado text-center px-3">CORREO</th>
-                    <!-- Columna de cp -->
-                    <th class="cuadroEncabezado text-center px-2">C.P.</th>
-                    <!-- Columna de colonia -->
-                    <th class="cuadroEncabezado text-center">COLONIA</th>
-                    <!-- Columna de area -->
-                    <th class="cuadroEncabezado text-center px-2">ÁREA</th>
-                    <!-- Columna de accion -->
-                    <th class="cuadroEncabezado text-center px-2">ACCIÓN</th>
+</div>
+<!-- Alerta de no coincidencias -->
+<div class="alert alert-warning"
+     style="width: 100%;"
+     role="alert"
+     *ngIf="bSinCoincidencias">
+        No se encontraron coincidencias.
+</div>
+<!-- Lista de quejas-->
+<div class="row mb- 3 mr-2"
+     style="width: 100%;"
+     *ngIf="!bSinCoincidencias">
+        <!-- Tabla de quejas -->
+        <table class="mt-3"
+               style="width:100%">
+                <tr class="border"
+                    style="background-color: #5e1932; color: white;">
+                        <!-- Columna de folio -->
+                        <th class="cuadroEncabezado text-center">FOLIO</th>
+                        <!-- Columna de nombre -->
+                        <th class="cuadroEncabezado text-center">NOMBRE</th>
+                        <!-- Columna de telefono -->
+                        <th class="cuadroEncabezado text-center">TELÉFONO</th>
+                        <!-- Columna de correo -->
+                        <th class="cuadroEncabezado text-center px-3">CORREO</th>
+                        <!-- Columna de cp -->
+                        <th class="cuadroEncabezado text-center px-2">C.P.</th>
+                        <!-- Columna de colonia -->
+                        <th class="cuadroEncabezado text-center">COLONIA</th>
+                        <!-- Columna de area -->
+                        <th class="cuadroEncabezado text-center px-2">ÁREA</th>
+                        <!-- Columna de accion -->
+                        <th class="cuadroEncabezado text-center px-2">ACCIÓN</th>
                 </tr>
                 <tr *ngFor="let queja of quejasArr; index as i;">
-                    <!-- Columna de folio -->
-                    <th class="cuadro text-center">{{queja.folio}}</th>
-                    <!-- Columna de nombre -->
-                    <th class="cuadro text-center">{{queja.nombre}}</th>
-                    <!-- Columna de telefono -->
-                    <th class="cuadro text-center">{{queja.telefono}}</th>
-                    <!-- Columna de correo -->
-                    <th class="cuadro text-center px-3">{{queja.correo}}</th>
-                    <!-- Columna de cp -->
-                    <th class="cuadro text-center px-2">{{queja.codigoPostal}}</th>
-                    <!-- Columna de colonia -->
-                    <th class="cuadro text-center">{{queja.colonia}}</th>
-                    <!-- Columna de area -->
-                    <th class="cuadro text-center px-2">{{queja.area.area}}</th>
-                    <!-- Columna de accion -->
-                    <th class="cuadro text-center px-3">
-                        <button type="button" class="btn btn-primary btn-block mx-auto my-2" (click)="ver(i, contenido)" style="font-family: Arial; font-size: smaller; background-color: #0B5345; border-color: #0B5345;">
-                            VER
-                        </button>
-                    </th>
+                        <!-- Columna de folio -->
+                        <th class="cuadro text-center">{{queja.folio}}</th>
+                        <!-- Columna de nombre -->
+                        <th class="cuadro text-center">{{queja.nombre}}</th>
+                        <!-- Columna de telefono -->
+                        <th class="cuadro text-center">{{queja.telefono}}</th>
+                        <!-- Columna de correo -->
+                        <th class="cuadro text-center px-3">{{queja.correo}}</th>
+                        <!-- Columna de cp -->
+                        <th class="cuadro text-center px-2">{{queja.codigoPostal}}</th>
+                        <!-- Columna de colonia -->
+                        <th class="cuadro text-center">{{queja.colonia}}</th>
+                        <!-- Columna de area -->
+                        <th class="cuadro text-center px-2">{{queja.area.area}}</th>
+                        <!-- Columna de accion -->
+                        <th class="cuadro text-center px-3">
+                                <button type="button"
+                                        class="btn btn-primary btn-block mx-auto my-2"
+                                        (click)="ver(i, contenido)"
+                                        style="font-family: Arial; font-size: smaller; background-color: #0B5345; border-color: #0B5345;">
+                                        VER
+                                </button>
+                        </th>
                 </tr>
-            </table>
+        </table>
 
-        </div>
-        <!-- Paginacion -->
-        <div class="row text-center my-5" style="display: block;" *ngIf="!((nPagSig == 0) && (paginaActual == 1))">
-            <button type="button" class="btn btn-light mr-4" (click)="paginaAnt()" *ngIf="paginaActual > 1">
+</div>
+<!-- Paginacion -->
+<div class="row text-center my-5"
+     style="display: block;"
+     *ngIf="!((nPagSig == 0) && (paginaActual == 1))">
+        <button type="button"
+                class="btn btn-light mr-4"
+                (click)="paginaAnt()"
+                *ngIf="paginaActual > 1">
                 <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
-            </button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(4)" *ngIf="(paginaActual > 4) && (nPagSig > 5)">{{paginaActual - 4}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(3)" *ngIf="(paginaActual > 3) && (nPagSig > 4)">{{paginaActual - 3}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(2)" *ngIf="paginaActual > 2">{{paginaActual - 2}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaBack(1)" *ngIf="paginaActual > 1">{{paginaActual - 1}}</button>
-            <button type="button" class="btn btn-light mr-1 active">{{paginaActual}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaNext(1)" *ngIf="nPagSig > 0">{{paginaActual + 1}}</button>
-            <button type="button" class="btn btn-light mr-1" (click)="paginaNext(2)" *ngIf="nPagSig > 1">{{paginaActual + 2}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaNext(3)" *ngIf="(nPagSig > 2) && (paginaActual < 3)">{{paginaActual + 3}}</button>
-            <button type="button" class="btn btn-light" (click)="paginaNext(4)" *ngIf="(nPagSig > 3) && (paginaActual < 2)">{{paginaActual + 4}}</button>
-            <button type="button" class="btn btn-light ml-4" (click)="paginaSig()" *ngIf="nPagSig > 0">
+        </button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaBack(4)"
+                *ngIf="(paginaActual > 4) && (nPagSig > 5)">{{paginaActual - 4}}</button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaBack(3)"
+                *ngIf="(paginaActual > 3) && (nPagSig > 4)">{{paginaActual - 3}}</button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaBack(2)"
+                *ngIf="paginaActual > 2">{{paginaActual - 2}}</button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaBack(1)"
+                *ngIf="paginaActual > 1">{{paginaActual - 1}}</button>
+        <button type="button"
+                class="btn btn-light mr-1 active">{{paginaActual}}</button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaNext(1)"
+                *ngIf="nPagSig > 0">{{paginaActual + 1}}</button>
+        <button type="button"
+                class="btn btn-light mr-1"
+                (click)="paginaNext(2)"
+                *ngIf="nPagSig > 1">{{paginaActual + 2}}</button>
+        <button type="button"
+                class="btn btn-light"
+                (click)="paginaNext(3)"
+                *ngIf="(nPagSig > 2) && (paginaActual < 3)">{{paginaActual + 3}}</button>
+        <button type="button"
+                class="btn btn-light"
+                (click)="paginaNext(4)"
+                *ngIf="(nPagSig > 3) && (paginaActual < 2)">{{paginaActual + 4}}</button>
+        <button type="button"
+                class="btn btn-light ml-4"
+                (click)="paginaSig()"
+                *ngIf="nPagSig > 0">
                 <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
-            </button>
-        </div>
-
-    </div>
+        </button>
 </div>
 
 <!-- Modal -->
-<ng-template #contenido let-modal>
-    <div class="modal-header text-center" style="background-color: #5e1932; color:white;">
-        <h3 class="modal-title w-100" style="padding: 10px 8px 10px 8px; font-family: Arial; font-weight: bold;">INFORMACIÓN DE QUEJA</h3>
-        <button type="button" class="close" style="color: white;" (click)="modal.dismiss()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        <app-pdf-view [pdfSrc]="pdfActual"></app-pdf-view>
-    </div>
+<ng-template #contenido
+             let-modal>
+        <div class="modal-header text-center"
+             style="background-color: #5e1932; color:white;">
+                <h3 class="modal-title w-100"
+                    style="padding: 10px 8px 10px 8px; font-family: Arial; font-weight: bold;">INFORMACIÓN DE QUEJA</h3>
+                <button type="button"
+                        class="close"
+                        style="color: white;"
+                        (click)="modal.dismiss()">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+                <app-pdf-view [pdfSrc]="pdfActual"></app-pdf-view>
+        </div>
 </ng-template>

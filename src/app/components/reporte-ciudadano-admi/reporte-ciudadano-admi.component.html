@@ -1,66 +1,40 @@
-<!-- Cuerpo de la pagina -->
-<div id="main">
-    <!-- Encabezado a la derecha -->
-    <div id="botonNav"
-         class="container-fluid border-bottom">
-        <!-- Boton mostrar no responsivo -->
-        <button type="button"
-                class="btn btn-ligth shadow my-3 ml-3 normal"
-                (click)="openNav()"
-                *ngIf="!bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton ocultar no responsivo -->
-        <button type="button"
-                class="btn btn-ligth shadow my-3 ml-3 normal"
-                (click)="closeNav()"
-                *ngIf="bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton mostrar responsivo -->
-        <button type="button"
-                class="btn btn-ligth shadow my-3 ml-3 responsivo"
-                (click)="openNavResp()"
-                *ngIf="!bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
-        <!-- Boton ocultar responsivo -->
-        <button type="button"
-                class="btn btn-ligth shadow my-3 ml-3 responsivo"
-                (click)="closeNavResp()"
-                *ngIf="bSidenavAct">
-            <fa-icon [icon]="faGripLines"></fa-icon>
-        </button>
+<!-- Titulo -->
+<div class="row titulo mt-5 mb-3">
+    <p class="col text-center"
+       style="font-family: Arial; font-weight: bold; font-size: 30px;">REPORTES CIUDADANOS</p>
+</div>
+<!-- Cards -->
+<div class="row-cols-2">
+    <!-- Seguridad -->
+    <div class="col carta">
+        <a href="/ReporteCiLista/3"
+           class="cartaVinculo card mb-5 mx-auto shadow"
+           style="width: 20rem; height: 23rem;">
+            <img src="../../../assets/img/seguridad.png"
+                 class="card-img-top imgcard"
+                 alt="Servicios"
+                 width="100%"
+                 height="70%" />
+            <div class="text-center my-auto">
+                <h4 class="card-title"
+                    style="font-family: Arial; font-weight: bold">Seguridad</h4>
+            </div>
+        </a>
     </div>
-
-    <!-- Contenido de la pagina -->
-    <div class="container-fluid my-3"
-         style="padding-left: 5%; padding-right: 5%;">
-        <!-- Titulo -->
-        <div class="row titulo mt-5 mb-3">
-            <p class="col text-center"
-               style="font-family: Arial; font-weight: bold; font-size: 30px;">REPORTES CIUDADANOS</p>
-        </div>
-        <!-- Cards -->
-        <div class="row-cols-2">
-            <!-- Seguridad -->
-            <div class="col carta">
-                <a href="/ReporteCiLista/3" class="cartaVinculo card mb-5 mx-auto shadow" style="width: 20rem; height: 23rem;">
-                    <img src="../../../assets/img/seguridad.png" class="card-img-top imgcard" alt="Servicios" width="100%" height="70%" />
-                    <div class="text-center my-auto">
-                        <h4 class="card-title" style="font-family: Arial; font-weight: bold">Seguridad</h4>
-                    </div>
-                </a>
+    <!-- Proteccion civil -->
+    <div class="col carta">
+        <a href="/ReporteCiLista/4"
+           class="cartaVinculo card mx-auto shadow"
+           style="width: 20rem; height: 23rem;">
+            <img src="../../../assets/img/proteccion_civil.png"
+                 class="card-img-top imgcard"
+                 alt="Vialidad"
+                 width="100%"
+                 height="70%" />
+            <div class="text-center my-auto">
+                <h4 class="card-title"
+                    style="font-family: Arial; font-weight: bold">Protección Civil</h4>
             </div>
-            <!-- Proteccion civil -->
-            <div class="col carta">
-                <a href="/ReporteCiLista/4" class="cartaVinculo card mx-auto shadow" style="width: 20rem; height: 23rem;">
-                    <img src="../../../assets/img/proteccion_civil.png" class="card-img-top imgcard" alt="Vialidad" width="100%" height="70%" />
-                    <div class="text-center my-auto">
-                        <h4 class="card-title" style="font-family: Arial; font-weight: bold">Protección Civil</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
+        </a>
     </div>
 </div>

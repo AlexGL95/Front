@@ -12,27 +12,22 @@ import { PropuestaComponent } from './components/propuesta/propuesta.component';
 import { ReporteCiudadanoComponent } from './components/reporte-ciudadano/reporte-ciudadano.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { QuejaAdmiComponent } from './components/queja-admi/queja-admi.component';
-import { PropuestaAdmiComponent } from './components/propuesta-admi/propuesta-admi.component';
-import { ReporteCiudadanoAdmiComponent } from './components/reporte-ciudadano-admi/reporte-ciudadano-admi.component';
-import { QuejaListaComponent } from './components/queja-lista/queja-lista.component';
-import { PropuestaListaComponent } from './components/propuesta-lista/propuesta-lista.component';
-import { ReporteCiudadanoListaComponent } from './components/reporte-ciudadano-lista/reporte-ciudadano-lista.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewComponent } from './components/pdf-view/pdf-view.component';
 import { EvidenciaPComponent } from './components/evidencia-p/evidencia-p.component';
-import { SuccessComponent } from './components/success/success.component';
-import { GraficaComponent } from './components/grafica/grafica.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EvidenciaQComponent } from './components/evidencia-q/evidencia-q.component';
 import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.component';
+import { NavbarModule } from './components/navbar/navbar.module';
+import { CommonModule } from '@angular/common';
+import { NavbarRoutingModule } from './components/navbar/navbar-routing.module';
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     InicioComponent,
@@ -44,37 +39,31 @@ import { EvidenciaRComponent } from './components/evidencia-r/evidencia-r.compon
     ReporteCiudadanoComponent,
     LoginComponent,
     NavbarComponent,
-    QuejaAdmiComponent,
-    PropuestaAdmiComponent,
-    ReporteCiudadanoAdmiComponent,
-    QuejaListaComponent,
-    PropuestaListaComponent,
-    ReporteCiudadanoListaComponent,
-    PdfViewComponent,
-    GraficaComponent,
     EvidenciaPComponent,
-    SuccessComponent,
     EvidenciaQComponent,
     EvidenciaRComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
+    NavbarRoutingModule,
     ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
     NgbModule,
+    NavbarModule,
     PdfViewerModule,
     GoogleChartsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({
+    ToastrModule.forRoot( {
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    }), // ToastrModule added
+    } ), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
-})
+} )
 export class AppModule { }

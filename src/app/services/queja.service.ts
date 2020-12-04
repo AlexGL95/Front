@@ -5,63 +5,63 @@ import { Queja } from '../interfaces/queja';
 import { Colonias } from '../interfaces/colonias';
 import { QuejaInterface } from '../interfaces/queja.interface';
 
-@Injectable({
+@Injectable( {
   providedIn: 'root'
-})
+} )
 export class QuejaService {
 
-  URIqueja = 'http://18.222.78.194:3001/queja';
-  URIcategoria = 'http://18.222.78.194:3001/categoria';
+  URIqueja = 'http://localhost:3000/queja';
+  URIcategoria = 'http://localhost:3000/categoria';
   URIsempomex = 'https://api-sepomex.hckdrk.mx/query/get_colonia_por_cp'
 
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
-  guardarQueja(queja: Queja){
-    return this.http.post(this.URIqueja, queja);
+  guardarQueja( queja: Queja ) {
+    return this.http.post( this.URIqueja, queja );
   }
 
   verQueja( id: number ) {
-    const httpHeaders = new HttpHeaders({
+    const httpHeaders = new HttpHeaders( {
       'Content-Type': 'application/json'
-    });
+    } );
     const options = {
       headers: httpHeaders,
       responseType: 'blob' as 'json'
     };
-    return this.http.get<any>(this.URIqueja + `/${id}`, options);
-}
-
-  obtenerQueja( categoria: number, area: number, pagina: number) {
-    return this.http.get<{rcArr: QuejaInterface[], nSig: number}>(this.URIqueja + `/${categoria}/${area}/${pagina}`);
+    return this.http.get<any>( this.URIqueja + `/${id}`, options );
   }
 
-  adjuntarArchivosQ(file: File){
+  obtenerQueja( categoria: number, area: number, pagina: number ) {
+    return this.http.get<{ rcArr: QuejaInterface[], nSig: number }>( this.URIqueja + `/${categoria}/${area}/${pagina}` );
+  }
+
+  adjuntarArchivosQ( file: File ) {
     const fd = new FormData();
-    fd.append('evidencia', file);
-    return this.http.post(`${this.URIqueja}/filesQ`, fd);
+    fd.append( 'evidencia', file );
+    return this.http.post( `${this.URIqueja}/filesQ`, fd );
   }
 
-  obtenerColonias(codigo: number){
-    return this.http.get<Colonias>(`${this.URIsempomex}/${codigo}`)
+  obtenerColonias( codigo: number ) {
+    return this.http.get<Colonias>( `${this.URIsempomex}/${codigo}` )
   }
 
-  obtenerCategorias(){
-    return this.http.get(this.URIcategoria);
+  obtenerCategorias() {
+    return this.http.get( this.URIcategoria );
   }
 
-  obtenerAreasP(){
-    return this.http.get(`${this.URIcategoria}/areap`)
+  obtenerAreasP() {
+    return this.http.get( `${this.URIcategoria}/areap` )
   }
 
-  obtenerAreasQ(){
-    return this.http.get(`${this.URIcategoria}/areaq`)
+  obtenerAreasQ() {
+    return this.http.get( `${this.URIcategoria}/areaq` )
   }
 
-  obtenerAreasRC(){
-    return this.http.get(`${this.URIcategoria}/arearc`)
+  obtenerAreasRC() {
+    return this.http.get( `${this.URIcategoria}/arearc` )
   }
 
   verQuejaGraph( categoria: number, area: number, fechaIni: string, fechaFin: string ) {
-    return this.http.get<[]>(this.URIqueja + `/graph/${categoria}/${area}/` + fechaIni + '/' + fechaFin);
+    return this.http.get<[]>( this.URIqueja + `/graph/${categoria}/${area}/` + fechaIni + '/' + fechaFin );
   }
 }
